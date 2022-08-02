@@ -1,0 +1,60 @@
+record(calc, "$(P)X_GAP") {
+    field(DESC, "Calculated gap")
+    field(INPA, "MCTSLT02MOT01.RBV CPP")
+    field(INPB, "MCTSLT02MOT02.RBV CPP")
+    field(CALC, "B-A")
+}
+
+record(ai, "$(P)X_GAP_TARGET1") {
+    field(DESC, "Tgt gap when VBM out")
+    field(VAL,  "20.0")
+
+    info(autosaveFields, "VAL")
+}
+
+record(calc, "$(P)X_GAP_STATUS1"){
+    field(DESC, "Status if VBM out")
+    field(INPA, "$(P)X_GAP CP")
+    field(INPB, "$(P)X_GAP_TARGET1 CP")
+    field(INPC, "0.1")
+    field(INPD, "0.0")
+    field(CALC, "A>D&&A<B+C")
+}
+
+record(ai, "$(P)X_GAP_TARGET3") {
+    field(DESC, "Tgt gap when VBM in")
+    field(VAL,  "2.08")
+    field(EGU,  "mrad")
+
+    info(autosaveFields, "VAL")
+}
+
+record(calc, "$(P)X_GAP_STATUS3") {
+    field(DESC, "Status when VBM in")
+    field(INPA, "$(P)X_GAP CP")
+    field(INPB, "$(P)X_GAP_TARGET3 CP")
+    field(INPC, "$(SLT02Z)")
+    field(INPD, "0.001")
+    field(INPE, "0.0")
+    field(INPF, "B*C*D")
+    field(CALC, "A>0&&A<F+E")
+}
+
+record(calcout, "$(P)X_GAP_CALC"){
+    field(DESC, "Select calc based on VBM and DMM status")
+    #field(INPA, "MCTMONO01:IN_SERVICE CP")
+    field(INPB, "MCTVBM01:IN_SERVICE CP")
+    field(INPC, "$(P)X_GAP_STATUS1 CP")
+    #field(INPD, "$(P)X_GAP_STATUS2 CP")
+    field(INPE, "$(P)X_GAP_STATUS3 CP")
+    field(CALC, "B?E:C")
+    field(OUT,  "$(P)X_GAP_STATUS PP")
+}
+
+record(bi, "$(P)X_GAP_STATUS") {
+    field(DESC, "X gap status based on VBM")
+    field(ZNAM, "Not in pos.")
+    field(ZSV,  "MINOR")
+    field(ONAM, "In posn.")
+    field(OSV,  "NO_ALARM")
+}
