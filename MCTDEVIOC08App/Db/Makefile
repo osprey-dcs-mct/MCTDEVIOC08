@@ -6,6 +6,9 @@ include $(TOP)/configure/CONFIG
 #----------------------------------------------------
 # Create and install (or just install) into <top>/db
 # databases, templates, substitutions like this
+DB += MCT_global_info.db
+
+DB += MCTSLT01_target.db
 DB += MCTSLT01_x_gap_status.db
 DB += MCTSLT01_x_centre_status.db
 DB += MCTSLT01_y_gap_status.db

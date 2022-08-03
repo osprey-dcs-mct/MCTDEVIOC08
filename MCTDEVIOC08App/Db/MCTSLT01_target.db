@@ -6,61 +6,270 @@ record(bo, "$(P):OP_MODE"){
     field(PINI, "YES")
 }
 
-record(ao, "$(P):AUTO_MOVE"){
-    field(DESC, "Auto move to calculated pos")
-    field(SDIS, "$(P):OP_MODE CP")
-    field(DISV, 0)
-    field(DOL, "$(P):XGAP_CALC CP")
-    field(OMSL, "closed_loop")
-    field(FLNK, "$(P):MOVEXGAP.PROC")
-    field(TPRO, 1)
+#Fixed mask aperture
+record(ai, "MCTSLT01:MSKH")
+{
+    field(DESC, "Slt01 hor mask aperture")
+    field(VAL, 2)
+    field(PINI, "YES")
+    field(PREC, $(PREC=3))
+    field(EGU, "mrad")
+}
+record(ai, "MCTSLT01:MSKV")
+{
+    field(DESC, "Slt01 vert mask aperture")
+    field(VAL, 0.3)
+    field(PINI, "YES")
+    field(PREC, $(PREC=3))
+    field(EGU, "mrad")
 }
 
 record(calc, "$(P):XGAP_CALC1"){
     field(DESC, "Calc for white beam mode)
     field(PREC, $(PREC=3))
-    field(INPA, "MCTMONO01:IN_SERVICE CP")
-    field(INPB, "MCTVBM01:IN_SERVICE CP")
-    field(CALC, "!(A||B)? 20.878 :0")
+    #fixed mask aperture
+    field(INPA, "MCTSLT01:MSKH CP")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    field(CALC, "A*B/1000")
+    field(PINI, "YES")
+    field(EGU, "mm")
+}
+record(calc, "$(P):XCENTRE_CALC1"){
+    field(DESC, "Calc for white beam mode)
+    field(PREC, $(PREC=3))
+    field(CALC, "0")
+    field(PINI, "YES")
+    field(EGU, "mm")
+}
+record(calc, "$(P):YGAP_CALC1"){
+    field(DESC, "Calc for white beam mode)
+    field(PREC, $(PREC=3))
+    #fixed mask aperture
+    field(INPA, "MCTSLT01:MSKV CP")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    field(CALC, "A*B/1000")
+    field(PINI, "YES")
+    field(EGU, "mm")
+}
+record(calc, "$(P):YCENTRE_CALC1"){
+    field(DESC, "Calc for white beam mode)
+    field(PREC, $(PREC=3))
+    field(CALC, "0")
+    field(PINI, "YES")
+    field(EGU, "mm")
 }
 
 record(calc, "$(P):XGAP_CALC2"){
-    field(DESC, ""Calc for pink beam mode"")
+    field(DESC, "Calc for pink beam mode")
     field(PREC, $(PREC=3))
-    field(INPA, "MCTMONO01:IN_SERVICE CP")
-    field(INPB, "MCTVBM01:IN_SERVICE CP")
-    field(CALC, "!A&&B? 20.878 :0")
+    #fixed mask aperture
+    field(INPA, "MCTSLT01:MSKH CP")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    field(CALC, "A*B/1000")
+    field(PINI, "YES")
+    field(EGU, "mm")
+}
+record(calc, "$(P):XCENTRE_CALC2"){
+    field(DESC, "Calc for pink beam mode")
+    field(PREC, $(PREC=3))
+    field(CALC, "0")
+    field(PINI, "YES")
+    field(EGU, "mm")
+}
+record(calc, "$(P):YGAP_CALC2"){
+    field(DESC, "Calc for pink beam mode")
+    field(PREC, $(PREC=3))
+    #fixed mask aperture
+    field(INPA, "MCTSLT01:MSKV CP")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    #VBM Y acceptance
+    field(INPC, "MCTVBM:Y_ACCEPT CP")
+    field(CALC, "MIN(A,C)*B/1000")
+    field(PINI, "YES")
+    field(EGU, "mm")
+}
+record(calc, "$(P):YCENTRE_CALC2"){
+    field(DESC, "Calc for pink beam mode")
+    field(PREC, $(PREC=3))
+    field(CALC, "0")
+    field(PINI, "YES")
+    field(EGU, "mm")
 }
 
 record(calc, "$(P):XGAP_CALC3"){
     field(DESC, "Calc for mono no mirror")
     field(PREC, $(PREC=3))
-    field(INPA, "MCTMONO01:IN_SERVICE CP")
-    field(INPB, "MCTVBM01:IN_SERVICE CP")
-    field(CALC, "A&&!B? 18.939 :0")
+    #DMM X acceptance
+    field(INPA, "MCTDMM:X_ACCEPT CP")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    field(CALC, "A*B/1000")
+    field(PINI, "YES")
+    field(EGU, "mm")
+}
+record(calc, "$(P):XCENTRE_CALC3"){
+    field(DESC, "Calc for mono no mirror")
+    field(PREC, $(PREC=3))
+    field(CALC, "0")
+    field(PINI, "YES")
+    field(EGU, "mm")
+}
+record(calc, "$(P):YGAP_CALC3"){
+    field(DESC, "Calc for mono no mirror")
+    field(PREC, $(PREC=3))
+    #fixed mask aperture
+    field(INPA, "MCTSLT01:MSKV CP")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    #VBM Y acceptance
+    field(INPC, "MCTDMM:Y_ACCEPT CP")
+    field(CALC, "MIN(A,C)*B/1000")
+    field(PINI, "YES")
+    field(EGU, "mm")
+}
+record(calc, "$(P):YCENTRE_CALC3"){
+    field(DESC, "Calc for mono no mirror")
+    field(PREC, $(PREC=3))
+    field(CALC, "0")
+    field(PINI, "YES")
+    field(EGU, "mm")
 }
 
 record(calc, "$(P):XGAP_CALC4"){
     field(DESC, "Calc for mono beam")
     field(PREC, $(PREC=3))
-    field(INPA, "MCTMONO01:IN_SERVICE CP")
-    field(INPB, "MCTVBM01:IN_SERVICE CP")
-    field(CALC, "A&&B? 18.939 :0")
+    #DMM X acceptance
+    field(INPA, "MCTDMM:X_ACCEPT CP")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    field(CALC, "A*B/1000")
+    field(PINI, "YES")
+    field(EGU, "mm")
 }
-
-record(calcout, "$(P):XGAP_CALC"){
-    field(DESC, "Calculate slit xgap")
+record(calc, "$(P):XCENTRE_CALC4"){
+    field(DESC, "Calc for mono beam")
     field(PREC, $(PREC=3))
-    field(INPA, "MCTMONO01:IN_SERVICE CP")
-    field(INPB, "MCTVBM01:IN_SERVICE CP")
-    field(INPC, "$(P):XGAP_CALC1 CP")
-    field(INPD, "$(P):XGAP_CALC2 CP")
-    field(INPE, "$(P):XGAP_CALC3 CP")
-    field(INPF, "$(P):XGAP_CALC4 CP")
-    field(CALC, "!(A||B)?C:!A&&B?D:A&&!B?E:A&&B?F:0")
-    field(OUT, "$(P):MOVEXGAP")
+    field(CALC, "0")
+    field(PINI, "YES")
+    field(EGU, "mm")
+}
+record(calc, "$(P):YGAP_CALC4"){
+    field(DESC, "Calc for mono beam")
+    field(PREC, $(PREC=3))
+    #fixed mask aperture
+    field(INPA, "MCTSLT01:MSKV CP")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    #VBM Y acceptance
+    field(INPC, "MCTDMM:Y_ACCEPT CP")
+    field(CALC, "MIN(A,C)*B/1000")
+    field(PINI, "YES")
+    field(EGU, "mm")
+}
+record(calc, "$(P):YCENTRE_CALC4"){
+    field(DESC, "Calc for mono beam")
+    field(PREC, $(PREC=3))
+    field(CALC, "0")
+    field(PINI, "YES")
+    field(EGU, "mm")
 }
 
-record(dfanout, "$(P):MOVEXGAP"){
-    field(OUTA, "$(MOTOR) PP")
+record(sel, "$(P):XGAP_CALC")
+{
+    field(DESC, "Decide calc based on mode")
+    field(NVL,  "MCT:MODE_STS CP")
+    field(SELM, "Specified")
+    field(INPA, "$(P):XGAP_CALC1 CP")
+    field(INPB, "$(P):XGAP_CALC2 CP")
+    field(INPC, "$(P):XGAP_CALC3 CP")
+    field(INPD, "$(P):XGAP_CALC4 CP")
+}
+record(ao, "$(P):XGAP_AUTO"){
+    field(DESC, "Auto move to calculated pos")
+    field(SDIS, "$(P):OP_MODE CP")
+    field(DISV, 0)
+    field(DOL, "$(P):XGAP_CALC CP")
+    field(OMSL, "closed_loop")
+    field(FLNK, "$(P):XGAP_MOVE.PROC")
+}
+record(dfanout, "$(P):XGAP_MOVE"){
+    field(DOL, "$(P):XGAP_CALC")
+    field(OMSL, "closed_loop")
+    field(OUTA, "MCTSLT01:HSIZE PP")
+}
+
+record(sel, "$(P):XCENTRE_CALC")
+{
+    field(DESC, "Decide calc based on mode")
+    field(NVL,  "MCT:MODE_STS CP")
+    field(SELM, "Specified")
+    field(INPA, "$(P):XCENTRE_CALC1 CP")
+    field(INPB, "$(P):XCENTRE_CALC2 CP")
+    field(INPC, "$(P):XCENTRE_CALC3 CP")
+    field(INPD, "$(P):XCENTRE_CALC4 CP")
+}
+record(ao, "$(P):XCENTRE_AUTO"){
+    field(DESC, "Auto move to calculated pos")
+    field(SDIS, "$(P):OP_MODE CP")
+    field(DISV, 0)
+    field(DOL, "$(P):XCENTRE_CALC CP")
+    field(OMSL, "closed_loop")
+    field(FLNK, "$(P):XCENTRE_MOVE.PROC")
+}
+record(dfanout, "$(P):XCENTRE_MOVE"){
+    field(DOL, "$(P):XCENTRE_CALC")
+    field(OMSL, "closed_loop")
+    field(OUTA, "MCTSLT01:HCENTRE PP")
+}
+
+record(sel, "$(P):YGAP_CALC")
+{
+    field(DESC, "Decide calc based on mode")
+    field(NVL,  "MCT:MODE_STS CP")
+    field(SELM, "Specified")
+    field(INPA, "$(P):YGAP_CALC1 CP")
+    field(INPB, "$(P):YGAP_CALC2 CP")
+    field(INPC, "$(P):YGAP_CALC3 CP")
+    field(INPD, "$(P):YGAP_CALC4 CP")
+}
+record(ao, "$(P):YGAP_AUTO"){
+    field(DESC, "Auto move to calculated pos")
+    field(SDIS, "$(P):OP_MODE CP")
+    field(DISV, 0)
+    field(DOL, "$(P):YGAP_CALC CP")
+    field(OMSL, "closed_loop")
+    field(FLNK, "$(P):YGAP_MOVE.PROC")
+}
+record(dfanout, "$(P):YGAP_MOVE"){
+    field(DOL, "$(P):YGAP_CALC")
+    field(OMSL, "closed_loop")
+    field(OUTA, "MCTSLT01:VSIZE PP")
+}
+
+record(sel, "$(P):YCENTRE_CALC")
+{
+    field(DESC, "Decide calc based on mode")
+    field(NVL,  "MCT:MODE_STS CP")
+    field(SELM, "Specified")
+    field(INPA, "$(P):YCENTRE_CALC1 CP")
+    field(INPB, "$(P):YCENTRE_CALC2 CP")
+    field(INPC, "$(P):YCENTRE_CALC3 CP")
+    field(INPD, "$(P):YCENTRE_CALC4 CP")
+}
+record(ao, "$(P):YCENTRE_AUTO"){
+    field(DESC, "Auto move to calculated pos")
+    field(SDIS, "$(P):OP_MODE CP")
+    field(DISV, 0)
+    field(DOL, "$(P):YCENTRE_CALC CP")
+    field(OMSL, "closed_loop")
+    field(FLNK, "$(P):YCENTRE_MOVE.PROC")
+}
+record(dfanout, "$(P):YCENTRE_MOVE"){
+    field(DOL, "$(P):YCENTRE_CALC")
+    field(OMSL, "closed_loop")
+    field(OUTA, "MCTSLT01:VCENTRE PP")
 }

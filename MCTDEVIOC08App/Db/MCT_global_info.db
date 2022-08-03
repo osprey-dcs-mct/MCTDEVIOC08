@@ -1,0 +1,171 @@
+#Z location of each component (from source)
+record(ai, "MCTMSK:Z")
+{
+    field(DESC, "Fixed mask Z pos")
+    field(VAL, 9668)
+    field(PINI, "YES")
+    field(PREC, $(PREC=3))
+    field(EGU, "mm")
+}
+
+record(ai, "MCTSLT01:Z")
+{
+    field(DESC, "Slit 01 Z pos")
+    field(VAL, 10439)
+    field(PINI, "YES")
+    field(PREC, $(PREC=3))
+    field(EGU, "mm")
+}
+
+record(ai, "MCTDMM:Z1")
+{
+    field(DESC, "DMM layer 1 Z pos")
+    field(VAL, 12126)
+    field(PINI, "YES")
+    field(PREC, $(PREC=3))
+    field(EGU, "mm")
+}
+
+record(ai, "MCTDMM:Z2")
+{
+    field(DESC, "DMM layer 2 Z pos")
+    field(VAL, 13756)
+    field(PINI, "YES")
+    field(PREC, $(PREC=3))
+    field(EGU, "mm")
+}
+
+record(ai, "MCTSLT02:Z")
+{
+    field(DESC, "Slit 02 Z pos")
+    field(VAL, 14840)
+    field(PINI, "YES")
+    field(PREC, $(PREC=3))
+    field(EGU, "mm")
+}
+
+record(ai, "MCTVBM:Z")
+{
+    field(DESC, "VBM Z pos")
+    field(VAL, 16091)
+    field(PINI, "YES")
+    field(PREC, $(PREC=3))
+    field(EGU, "mm")
+}
+
+record(ai, "MCTSLT03:Z")
+{
+    field(DESC, "Slit 03 Z pos")
+    field(VAL, 18700)
+    field(PINI, "YES")
+    field(PREC, $(PREC=3))
+    field(EGU, "mm")
+}
+
+record(ai, "MCTTBL01:Z")
+{
+    field(DESC, "Table B1 Z pos")
+    field(VAL, 22300)
+    field(PINI, "YES")
+    field(PREC, $(PREC=3))
+    field(EGU, "mm")
+}
+
+record(ai, "MCTTBL02:Z")
+{
+    field(DESC, "Table B2 Z pos")
+    field(VAL, 26200)
+    field(PINI, "YES")
+    field(PREC, $(PREC=3))
+    field(EGU, "mm")
+}
+
+record(ai, "MCTTBL03:Z")
+{
+    field(DESC, "Table C1 Z pos")
+    field(VAL, 29500)
+    field(PINI, "YES")
+    field(PREC, $(PREC=3))
+    field(EGU, "mm")
+}
+
+record(ai, "MCTTBL04:Z")
+{
+    field(DESC, "Table C2 Z pos")
+    field(VAL, 33000)
+    field(PINI, "YES")
+    field(PREC, $(PREC=3))
+    field(EGU, "mm")
+}
+
+#Operational mode and other global calculations
+record(calc, "MCT:MODE_CALC")
+{
+    field(DESC, "Calc for ops mode")
+    field(INPA, "MCTMONO01:IN_SERVICE CP")
+    field(INPB, "MCTVBM01:IN_SERVICE CP")
+    field(CALC, "!(A||B)?0:!A&&B?1:A&&!B?2:3")
+}
+
+record(mbbi, "MCT:MODE_STS")
+{
+    field(DESC, "Beamline ops mode)
+    field(INP, "MCT:MODE_CALC CP MS")
+    field(ZRVL, 0)
+    field(ZRST, "White_Beam")
+    field(ONVL, 1)
+    field(ONST, "Pink_Beam")
+    field(TWVL, 2)
+    field(TWST, "Mono_No_Mirror")
+    field(THVL, 3)
+    field(FHST, "Mono_Beam")
+}
+
+#DMM angular acceptance
+record(calc, "MCTDMM:X_ACCEPT")
+{
+    field(DESC, "Calc for DMM X acceptance")
+    #DMM stripe dimension
+    field(INPA, 22)
+    field(INPB, "MCTDMM:Z1 CP")
+    field(CALC, "(A/B)*1000")
+    field(PREC, $(PREC=3))
+    field(PINI, "YES")
+}
+record(calc, "MCTDMM:Y_ACCEPT")
+{
+    field(DESC, "Calc for DMM Y acceptance")
+    #DMM stripe dimension
+    field(INPA, 330)
+    #DMM ML1 Z
+    field(INPB, "MCTDMM:Z1 CP")
+    #DMM ML1 Pitch
+    field(INPC, "MCTMONO01MOT06.RBV CP")
+    field(CALC, "A*SIN(C)/B*1000")
+    field(PREC, $(PREC=3))
+    field(PINI, "YES")
+}
+
+#VBM angular acceptance
+record(calc, "MCTVBM:X_ACCEPT")
+{
+    field(DESC, "Calc for VBM X acceptance")
+    #VBM stripe dimension
+    field(INPA, 35)
+    field(INPB, "MCTVBM:Z CP")
+    field(CALC, "(A/B)*1000")
+    field(PREC, $(PREC=3))
+    field(PINI, "YES")
+}
+record(calc, "MCTVBM:Y_ACCEPT")
+{
+    field(DESC, "Calc for VBM Y acceptance")
+    #VBM stripe dimension
+    field(INPA, 1150)
+    field(INPB, "MCTVBM:Z CP")
+    #VBM Pitch
+    field(INPC, "MCTVBM01:PITCH.RBV CP")
+    field(CALC, "A*SIN(C)/B*1000")
+    field(PREC, $(PREC=3))
+    field(PINI, "YES")
+}
