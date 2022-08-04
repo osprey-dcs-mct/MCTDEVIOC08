@@ -2,7 +2,7 @@ record(bo, "$(P):OP_MODE"){
     field(DESC, "Change operational mode")
     field(ZNAM, "MANUAL")
     field(ONAM, "AUTO")
-    field(VAL, 0)
+    field(VAL,  0)
     field(PINI, "YES")
 }
 
@@ -10,80 +10,80 @@ record(bo, "$(P):OP_MODE"){
 record(ai, "MCTSLT01:MSKH")
 {
     field(DESC, "Slt01 hor mask aperture")
-    field(VAL, 2)
+    field(VAL,  2)
     field(PINI, "YES")
-    field(PREC, $(PREC=3))
-    field(EGU, "mrad")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mrad")
 }
 record(ai, "MCTSLT01:MSKV")
 {
     field(DESC, "Slt01 vert mask aperture")
-    field(VAL, 0.3)
+    field(VAL,  0.3)
     field(PINI, "YES")
-    field(PREC, $(PREC=3))
-    field(EGU, "mrad")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mrad")
 }
 
 #White Beam calc definitions
 record(calc, "$(P):HSIZE_CALC1"){
     field(DESC, "Calc for white beam mode)
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     #fixed mask aperture
     field(INPA, "MCTSLT01:MSKH CP")
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     field(CALC, "A*B/1000")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 record(calc, "$(P):HCENTRE_CALC1"){
     field(DESC, "Calc for white beam mode)
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     field(CALC, "0")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 record(calc, "$(P):VSIZE_CALC1"){
     field(DESC, "Calc for white beam mode)
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     #fixed mask aperture
     field(INPA, "MCTSLT01:MSKV CP")
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     field(CALC, "A*B/1000")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 record(calc, "$(P):VCENTRE_CALC1"){
     field(DESC, "Calc for white beam mode)
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     field(CALC, "0")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 
 #Pink Beam calc definitions
 record(calc, "$(P):HSIZE_CALC2"){
     field(DESC, "Calc for pink beam mode")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     #fixed mask aperture
     field(INPA, "MCTSLT01:MSKH CP")
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     field(CALC, "A*B/1000")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 record(calc, "$(P):HCENTRE_CALC2"){
     field(DESC, "Calc for pink beam mode")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     field(CALC, "0")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 record(calc, "$(P):VSIZE_CALC2"){
     field(DESC, "Calc for pink beam mode")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     #fixed mask aperture
     field(INPA, "MCTSLT01:MSKV CP")
     #SLT01 Z position
@@ -92,38 +92,38 @@ record(calc, "$(P):VSIZE_CALC2"){
     field(INPC, "MCTVBM:Y_ACCEPT CP")
     field(CALC, "MIN(A,C)*B/1000")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 record(calc, "$(P):VCENTRE_CALC2"){
     field(DESC, "Calc for pink beam mode")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     field(CALC, "0")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 
 #Mono Beam No Mirror calc definitions
 record(calc, "$(P):HSIZE_CALC3"){
     field(DESC, "Calc for mono no mirror")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     #DMM X acceptance
     field(INPA, "MCTDMM:X_ACCEPT CP")
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     field(CALC, "A*B/1000")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 record(calc, "$(P):HCENTRE_CALC3"){
     field(DESC, "Calc for mono no mirror")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     field(CALC, "0")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 record(calc, "$(P):VSIZE_CALC3"){
     field(DESC, "Calc for mono no mirror")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     #fixed mask aperture
     field(INPA, "MCTSLT01:MSKV CP")
     #SLT01 Z position
@@ -132,38 +132,38 @@ record(calc, "$(P):VSIZE_CALC3"){
     field(INPC, "MCTDMM:Y_ACCEPT CP")
     field(CALC, "MIN(A,C)*B/1000")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 record(calc, "$(P):VCENTRE_CALC3"){
     field(DESC, "Calc for mono no mirror")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     field(CALC, "0")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 
 #Mono Beam calc definitions
 record(calc, "$(P):HSIZE_CALC4"){
     field(DESC, "Calc for mono beam")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     #DMM X acceptance
     field(INPA, "MCTDMM:X_ACCEPT CP")
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     field(CALC, "A*B/1000")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 record(calc, "$(P):HCENTRE_CALC4"){
     field(DESC, "Calc for mono beam")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     field(CALC, "0")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 record(calc, "$(P):VSIZE_CALC4"){
     field(DESC, "Calc for mono beam")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     #fixed mask aperture
     field(INPA, "MCTSLT01:MSKV CP")
     #SLT01 Z position
@@ -172,14 +172,14 @@ record(calc, "$(P):VSIZE_CALC4"){
     field(INPC, "MCTDMM:Y_ACCEPT CP")
     field(CALC, "MIN(A,C)*B/1000")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 record(calc, "$(P):VCENTRE_CALC4"){
     field(DESC, "Calc for mono beam")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     field(CALC, "0")
     field(PINI, "YES")
-    field(EGU, "mm")
+    field(EGU,  "mm")
 }
 
 #HSIZE move calc/records
