@@ -2,100 +2,100 @@
 record(ai, "MCTMSK:Z")
 {
     field(DESC, "Fixed mask Z pos")
-    field(VAL, 9668)
+    field(VAL,  9668)
     field(PINI, "YES")
-    field(PREC, $(PREC=3))
-    field(EGU, "mm")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mm")
 }
 
 record(ai, "MCTSLT01:Z")
 {
     field(DESC, "Slit 01 Z pos")
-    field(VAL, 10439)
+    field(VAL,  10439)
     field(PINI, "YES")
-    field(PREC, $(PREC=3))
-    field(EGU, "mm")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mm")
 }
 
 record(ai, "MCTDMM:Z1")
 {
     field(DESC, "DMM layer 1 Z pos")
-    field(VAL, 12126)
+    field(VAL,  12126)
     field(PINI, "YES")
-    field(PREC, $(PREC=3))
-    field(EGU, "mm")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mm")
 }
 
 record(ai, "MCTDMM:Z2")
 {
     field(DESC, "DMM layer 2 Z pos")
-    field(VAL, 13756)
+    field(VAL,  13756)
     field(PINI, "YES")
-    field(PREC, $(PREC=3))
-    field(EGU, "mm")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mm")
 }
 
 record(ai, "MCTSLT02:Z")
 {
     field(DESC, "Slit 02 Z pos")
-    field(VAL, 14840)
+    field(VAL,  14840)
     field(PINI, "YES")
-    field(PREC, $(PREC=3))
-    field(EGU, "mm")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mm")
 }
 
 record(ai, "MCTVBM:Z")
 {
     field(DESC, "VBM Z pos")
-    field(VAL, 16091)
+    field(VAL,  16091)
     field(PINI, "YES")
-    field(PREC, $(PREC=3))
-    field(EGU, "mm")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mm")
 }
 
 record(ai, "MCTSLT03:Z")
 {
     field(DESC, "Slit 03 Z pos")
-    field(VAL, 18700)
+    field(VAL,  18700)
     field(PINI, "YES")
-    field(PREC, $(PREC=3))
-    field(EGU, "mm")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mm")
 }
 
 record(ai, "MCTTBL01:Z")
 {
     field(DESC, "Table B1 Z pos")
-    field(VAL, 22300)
+    field(VAL,  22300)
     field(PINI, "YES")
-    field(PREC, $(PREC=3))
-    field(EGU, "mm")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mm")
 }
 
 record(ai, "MCTTBL02:Z")
 {
     field(DESC, "Table B2 Z pos")
-    field(VAL, 26200)
+    field(VAL,  26200)
     field(PINI, "YES")
-    field(PREC, $(PREC=3))
-    field(EGU, "mm")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mm")
 }
 
 record(ai, "MCTTBL03:Z")
 {
     field(DESC, "Table C1 Z pos")
-    field(VAL, 29500)
+    field(VAL,  29500)
     field(PINI, "YES")
-    field(PREC, $(PREC=3))
-    field(EGU, "mm")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mm")
 }
 
 record(ai, "MCTTBL04:Z")
 {
     field(DESC, "Table C2 Z pos")
-    field(VAL, 33000)
+    field(VAL,  33000)
     field(PINI, "YES")
-    field(PREC, $(PREC=3))
-    field(EGU, "mm")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mm")
 }
 
 #Operational mode and other global calculations
@@ -129,7 +129,7 @@ record(calc, "MCTDMM:X_ACCEPT")
     field(INPA, 22)
     field(INPB, "MCTDMM:Z1 CP")
     field(CALC, "(A/B)*1000")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
 record(calc, "MCTDMM:Y_ACCEPT")
@@ -142,7 +142,7 @@ record(calc, "MCTDMM:Y_ACCEPT")
     #DMM ML1 Pitch
     field(INPC, "MCTMONO01MOT06.RBV CP")
     field(CALC, "A*SIN(C)/B*1000")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
 
@@ -154,7 +154,7 @@ record(calc, "MCTVBM:X_ACCEPT")
     field(INPA, 35)
     field(INPB, "MCTVBM:Z CP")
     field(CALC, "(A/B)*1000")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
 record(calc, "MCTVBM:Y_ACCEPT")
@@ -166,6 +166,6 @@ record(calc, "MCTVBM:Y_ACCEPT")
     #VBM Pitch
     field(INPC, "MCTVBM01:PITCH.RBV CP")
     field(CALC, "A*SIN(C)/B*1000")
-    field(PREC, $(PREC=3))
+    field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
