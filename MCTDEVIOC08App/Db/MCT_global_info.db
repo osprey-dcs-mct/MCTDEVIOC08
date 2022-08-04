@@ -109,7 +109,7 @@ record(calc, "MCT:MODE_CALC")
 
 record(mbbi, "MCT:MODE_STS")
 {
-    field(DESC, "Beamline ops mode)
+    field(DESC, "Beamline ops mode")
     field(INP, "MCT:MODE_CALC CP MS")
     field(ZRVL, 0)
     field(ZRST, "White_Beam")
@@ -118,7 +118,7 @@ record(mbbi, "MCT:MODE_STS")
     field(TWVL, 2)
     field(TWST, "Mono_No_Mirror")
     field(THVL, 3)
-    field(FHST, "Mono_Beam")
+    field(THST, "Mono_Beam")
 }
 
 #DMM angular acceptance
