@@ -1,4 +1,4 @@
-record(bo, "$(P):OP_MODE"){
+record(bo, "$(P)OP_MODE"){
     field(DESC, "Change operational mode")
     field(ZNAM, "MANUAL")
     field(ONAM, "AUTO")
@@ -25,8 +25,8 @@ record(ai, "MCTSLT01:MSKV")
 }
 
 #White Beam calc definitions
-record(calc, "$(P):HSIZE_CALC1"){
-    field(DESC, "Calc for white beam mode)
+record(calc, "$(P)HSIZE_CALC1"){
+    field(DESC, "Calc for white beam mode")
     field(PREC, "$(PREC=3)")
     #fixed mask aperture
     field(INPA, "MCTSLT01:MSKH CP")
@@ -36,15 +36,15 @@ record(calc, "$(P):HSIZE_CALC1"){
     field(PINI, "YES")
     field(EGU,  "mm")
 }
-record(calc, "$(P):HCENTRE_CALC1"){
-    field(DESC, "Calc for white beam mode)
+record(calc, "$(P)HCENTRE_CALC1"){
+    field(DESC, "Calc for white beam mode")
     field(PREC, "$(PREC=3)")
     field(CALC, "0")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
-record(calc, "$(P):VSIZE_CALC1"){
-    field(DESC, "Calc for white beam mode)
+record(calc, "$(P)VSIZE_CALC1"){
+    field(DESC, "Calc for white beam mode")
     field(PREC, "$(PREC=3)")
     #fixed mask aperture
     field(INPA, "MCTSLT01:MSKV CP")
@@ -54,8 +54,8 @@ record(calc, "$(P):VSIZE_CALC1"){
     field(PINI, "YES")
     field(EGU,  "mm")
 }
-record(calc, "$(P):VCENTRE_CALC1"){
-    field(DESC, "Calc for white beam mode)
+record(calc, "$(P)VCENTRE_CALC1"){
+    field(DESC, "Calc for white beam mode")
     field(PREC, "$(PREC=3)")
     field(CALC, "0")
     field(PINI, "YES")
@@ -63,7 +63,7 @@ record(calc, "$(P):VCENTRE_CALC1"){
 }
 
 #Pink Beam calc definitions
-record(calc, "$(P):HSIZE_CALC2"){
+record(calc, "$(P)HSIZE_CALC2"){
     field(DESC, "Calc for pink beam mode")
     field(PREC, "$(PREC=3)")
     #fixed mask aperture
@@ -74,14 +74,14 @@ record(calc, "$(P):HSIZE_CALC2"){
     field(PINI, "YES")
     field(EGU,  "mm")
 }
-record(calc, "$(P):HCENTRE_CALC2"){
+record(calc, "$(P)HCENTRE_CALC2"){
     field(DESC, "Calc for pink beam mode")
     field(PREC, "$(PREC=3)")
     field(CALC, "0")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
-record(calc, "$(P):VSIZE_CALC2"){
+record(calc, "$(P)VSIZE_CALC2"){
     field(DESC, "Calc for pink beam mode")
     field(PREC, "$(PREC=3)")
     #fixed mask aperture
@@ -94,7 +94,7 @@ record(calc, "$(P):VSIZE_CALC2"){
     field(PINI, "YES")
     field(EGU,  "mm")
 }
-record(calc, "$(P):VCENTRE_CALC2"){
+record(calc, "$(P)VCENTRE_CALC2"){
     field(DESC, "Calc for pink beam mode")
     field(PREC, "$(PREC=3)")
     field(CALC, "0")
@@ -103,7 +103,7 @@ record(calc, "$(P):VCENTRE_CALC2"){
 }
 
 #Mono Beam No Mirror calc definitions
-record(calc, "$(P):HSIZE_CALC3"){
+record(calc, "$(P)HSIZE_CALC3"){
     field(DESC, "Calc for mono no mirror")
     field(PREC, "$(PREC=3)")
     #DMM X acceptance
@@ -114,14 +114,14 @@ record(calc, "$(P):HSIZE_CALC3"){
     field(PINI, "YES")
     field(EGU,  "mm")
 }
-record(calc, "$(P):HCENTRE_CALC3"){
+record(calc, "$(P)HCENTRE_CALC3"){
     field(DESC, "Calc for mono no mirror")
     field(PREC, "$(PREC=3)")
     field(CALC, "0")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
-record(calc, "$(P):VSIZE_CALC3"){
+record(calc, "$(P)VSIZE_CALC3"){
     field(DESC, "Calc for mono no mirror")
     field(PREC, "$(PREC=3)")
     #fixed mask aperture
@@ -134,7 +134,7 @@ record(calc, "$(P):VSIZE_CALC3"){
     field(PINI, "YES")
     field(EGU,  "mm")
 }
-record(calc, "$(P):VCENTRE_CALC3"){
+record(calc, "$(P)VCENTRE_CALC3"){
     field(DESC, "Calc for mono no mirror")
     field(PREC, "$(PREC=3)")
     field(CALC, "0")
@@ -143,7 +143,7 @@ record(calc, "$(P):VCENTRE_CALC3"){
 }
 
 #Mono Beam calc definitions
-record(calc, "$(P):HSIZE_CALC4"){
+record(calc, "$(P)HSIZE_CALC4"){
     field(DESC, "Calc for mono beam")
     field(PREC, "$(PREC=3)")
     #DMM X acceptance
@@ -154,14 +154,14 @@ record(calc, "$(P):HSIZE_CALC4"){
     field(PINI, "YES")
     field(EGU,  "mm")
 }
-record(calc, "$(P):HCENTRE_CALC4"){
+record(calc, "$(P)HCENTRE_CALC4"){
     field(DESC, "Calc for mono beam")
     field(PREC, "$(PREC=3)")
     field(CALC, "0")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
-record(calc, "$(P):VSIZE_CALC4"){
+record(calc, "$(P)VSIZE_CALC4"){
     field(DESC, "Calc for mono beam")
     field(PREC, "$(PREC=3)")
     #fixed mask aperture
@@ -174,7 +174,7 @@ record(calc, "$(P):VSIZE_CALC4"){
     field(PINI, "YES")
     field(EGU,  "mm")
 }
-record(calc, "$(P):VCENTRE_CALC4"){
+record(calc, "$(P)VCENTRE_CALC4"){
     field(DESC, "Calc for mono beam")
     field(PREC, "$(PREC=3)")
     field(CALC, "0")
@@ -183,101 +183,101 @@ record(calc, "$(P):VCENTRE_CALC4"){
 }
 
 #HSIZE move calc/records
-record(sel, "$(P):HSIZE_CALC")
+record(sel, "$(P)HSIZE_CALC")
 {
     field(DESC, "Decide calc based on mode")
     field(NVL,  "MCT:MODE_STS CP")
     field(SELM, "Specified")
-    field(INPA, "$(P):HSIZE_CALC1 CP")
-    field(INPB, "$(P):HSIZE_CALC2 CP")
-    field(INPC, "$(P):HSIZE_CALC3 CP")
-    field(INPD, "$(P):HSIZE_CALC4 CP")
+    field(INPA, "$(P)HSIZE_CALC1 CP")
+    field(INPB, "$(P)HSIZE_CALC2 CP")
+    field(INPC, "$(P)HSIZE_CALC3 CP")
+    field(INPD, "$(P)HSIZE_CALC4 CP")
 }
-record(ao, "$(P):HSIZE_AUTO"){
+record(ao, "$(P)HSIZE_AUTO"){
     field(DESC, "Auto move to calculated pos")
-    field(SDIS, "$(P):OP_MODE CP")
+    field(SDIS, "$(P)OP_MODE CP")
     field(DISV, 0)
-    field(DOL, "$(P):HSIZE_CALC CP")
+    field(DOL, "$(P)HSIZE_CALC CP")
     field(OMSL, "closed_loop")
-    field(FLNK, "$(P):HSIZE_MOVE.PROC")
+    field(FLNK, "$(P)HSIZE_MOVE.PROC")
 }
-record(dfanout, "$(P):HSIZE_MOVE"){
-    field(DOL, "$(P):HSIZE_CALC")
+record(dfanout, "$(P)HSIZE_MOVE"){
+    field(DOL, "$(P)HSIZE_CALC")
     field(OMSL, "closed_loop")
     field(OUTA, "MCTSLT01:HSIZE PP")
 }
 
 #HCENTRE move calc/records
-record(sel, "$(P):HCENTRE_CALC")
+record(sel, "$(P)HCENTRE_CALC")
 {
     field(DESC, "Decide calc based on mode")
     field(NVL,  "MCT:MODE_STS CP")
     field(SELM, "Specified")
-    field(INPA, "$(P):HCENTRE_CALC1 CP")
-    field(INPB, "$(P):HCENTRE_CALC2 CP")
-    field(INPC, "$(P):HCENTRE_CALC3 CP")
-    field(INPD, "$(P):HCENTRE_CALC4 CP")
+    field(INPA, "$(P)HCENTRE_CALC1 CP")
+    field(INPB, "$(P)HCENTRE_CALC2 CP")
+    field(INPC, "$(P)HCENTRE_CALC3 CP")
+    field(INPD, "$(P)HCENTRE_CALC4 CP")
 }
-record(ao, "$(P):HCENTRE_AUTO"){
+record(ao, "$(P)HCENTRE_AUTO"){
     field(DESC, "Auto move to calculated pos")
-    field(SDIS, "$(P):OP_MODE CP")
+    field(SDIS, "$(P)OP_MODE CP")
     field(DISV, 0)
-    field(DOL, "$(P):HCENTRE_CALC CP")
+    field(DOL, "$(P)HCENTRE_CALC CP")
     field(OMSL, "closed_loop")
-    field(FLNK, "$(P):HCENTRE_MOVE.PROC")
+    field(FLNK, "$(P)HCENTRE_MOVE.PROC")
 }
-record(dfanout, "$(P):HCENTRE_MOVE"){
-    field(DOL, "$(P):HCENTRE_CALC")
+record(dfanout, "$(P)HCENTRE_MOVE"){
+    field(DOL, "$(P)HCENTRE_CALC")
     field(OMSL, "closed_loop")
     field(OUTA, "MCTSLT01:HCENTRE PP")
 }
 
 #VSIZE move calc/records
-record(sel, "$(P):VSIZE_CALC")
+record(sel, "$(P)VSIZE_CALC")
 {
     field(DESC, "Decide calc based on mode")
     field(NVL,  "MCT:MODE_STS CP")
     field(SELM, "Specified")
-    field(INPA, "$(P):VSIZE_CALC1 CP")
-    field(INPB, "$(P):VSIZE_CALC2 CP")
-    field(INPC, "$(P):VSIZE_CALC3 CP")
-    field(INPD, "$(P):VSIZE_CALC4 CP")
+    field(INPA, "$(P)VSIZE_CALC1 CP")
+    field(INPB, "$(P)VSIZE_CALC2 CP")
+    field(INPC, "$(P)VSIZE_CALC3 CP")
+    field(INPD, "$(P)VSIZE_CALC4 CP")
 }
-record(ao, "$(P):VSIZE_AUTO"){
+record(ao, "$(P)VSIZE_AUTO"){
     field(DESC, "Auto move to calculated pos")
-    field(SDIS, "$(P):OP_MODE CP")
+    field(SDIS, "$(P)OP_MODE CP")
     field(DISV, 0)
-    field(DOL, "$(P):VSIZE_CALC CP")
+    field(DOL, "$(P)VSIZE_CALC CP")
     field(OMSL, "closed_loop")
-    field(FLNK, "$(P):VSIZE_MOVE.PROC")
+    field(FLNK, "$(P)VSIZE_MOVE.PROC")
 }
-record(dfanout, "$(P):VSIZE_MOVE"){
-    field(DOL, "$(P):VSIZE_CALC")
+record(dfanout, "$(P)VSIZE_MOVE"){
+    field(DOL, "$(P)VSIZE_CALC")
     field(OMSL, "closed_loop")
     field(OUTA, "MCTSLT01:VSIZE PP")
 }
 
 #VCENTRE move calc/records
-record(sel, "$(P):VCENTRE_CALC")
+record(sel, "$(P)VCENTRE_CALC")
 {
     field(DESC, "Decide calc based on mode")
     field(NVL,  "MCT:MODE_STS CP")
     field(SELM, "Specified")
-    field(INPA, "$(P):VCENTRE_CALC1 CP")
-    field(INPB, "$(P):VCENTRE_CALC2 CP")
-    field(INPC, "$(P):VCENTRE_CALC3 CP")
-    field(INPD, "$(P):VCENTRE_CALC4 CP")
+    field(INPA, "$(P)VCENTRE_CALC1 CP")
+    field(INPB, "$(P)VCENTRE_CALC2 CP")
+    field(INPC, "$(P)VCENTRE_CALC3 CP")
+    field(INPD, "$(P)VCENTRE_CALC4 CP")
 }
-record(ao, "$(P):VCENTRE_AUTO"){
+record(ao, "$(P)VCENTRE_AUTO"){
     field(DESC, "Auto move to calculated pos")
-    field(SDIS, "$(P):OP_MODE CP")
+    field(SDIS, "$(P)OP_MODE CP")
     field(DISV, 0)
-    field(DOL, "$(P):VCENTRE_CALC CP")
+    field(DOL, "$(P)VCENTRE_CALC CP")
     field(OMSL, "closed_loop")
-    field(FLNK, "$(P):VCENTRE_MOVE.PROC")
+    field(FLNK, "$(P)VCENTRE_MOVE.PROC")
 }
-record(dfanout, "$(P):VCENTRE_MOVE"){
-    field(DOL, "$(P):VCENTRE_CALC")
+record(dfanout, "$(P)VCENTRE_MOVE"){
+    field(DOL, "$(P)VCENTRE_CALC")
     field(OMSL, "closed_loop")
     field(OUTA, "MCTSLT01:VCENTRE PP")
 }
