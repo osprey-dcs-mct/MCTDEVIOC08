@@ -1,0 +1,7 @@
+O.linux-x86_64/
+O.Common/
+bin/
+^/db/
+dbd/
+envPaths
+
