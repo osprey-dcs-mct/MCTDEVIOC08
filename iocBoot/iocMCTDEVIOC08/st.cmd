@@ -32,7 +32,7 @@ set_pass0_restoreFile("info_positions.sav")
 ## Load record instances
 
 #Global MCT info (Beam mode, Z locations, etc)
-dbLoadRecords("db/MCT_global_info.db")
+dbLoadRecords("db/MCT_global_info.db", "PREC=3")
 
 # SLT01 records
 dbLoadRecords("db/MCTSLT01_x_gap_status.db", "P=$(SLIT1)")
@@ -40,7 +40,7 @@ dbLoadRecords("db/MCTSLT01_x_centre_status.db", "P=$(SLIT1)")
 dbLoadRecords("db/MCTSLT01_y_gap_status.db", "P=$(SLIT1),SLT01Z=$(SLT01Z),VBMZ=$(VBMZ)")
 dbLoadRecords("db/MCTSLT01_y_centre_status.db", "P=$(SLIT1)")
 dbLoadRecords("db/MCTSLT01_overall_status.db", "P=$(SLIT1)")
-dbLoadRecords("db/MCTSLT01_target.db", "P=$(SLIT1)")
+dbLoadRecords("db/MCTSLT01_target.db", "P=$(SLIT1),PREC=3")
 
 # SLT02 records
 dbLoadRecords("db/MCTSLT02_x_gap_status.db", "P=$(SLIT2),SLT02Z=$(SLT02Z)")
