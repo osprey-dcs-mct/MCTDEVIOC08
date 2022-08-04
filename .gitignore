@@ -1,7 +1,8 @@
 O.linux-x86_64/
 O.Common/
 bin/
-^/db/
+/db/
 dbd/
 envPaths
-
+info_settings.req
+info_positions.req
