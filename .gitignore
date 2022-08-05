@@ -6,3 +6,4 @@ dbd/
 envPaths
 info_settings.req
 info_positions.req
+*.swp
