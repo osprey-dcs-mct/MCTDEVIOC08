@@ -71,7 +71,7 @@ record(calc, "$(P)VSIZE_CALC2"){
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     #VBM Y acceptance
-    field(INPC, "MCTVBM:Y_ACCEPT CP")
+    field(INPC, "MCTVBM01:V_ACCEPT CP")
     field(CALC, "MIN(A,C)*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -89,7 +89,7 @@ record(calc, "$(P)HSIZE_CALC3"){
     field(DESC, "Calc for mono no mirror")
     field(PREC, "$(PREC=3)")
     #DMM X acceptance
-    field(INPA, "MCTDMM:X_ACCEPT CP")
+    field(INPA, "MCTMONO01:H_ACCEPT CP")
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     field(CALC, "A*B/1000")
@@ -111,7 +111,7 @@ record(calc, "$(P)VSIZE_CALC3"){
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     #VBM Y acceptance
-    field(INPC, "MCTDMM:Y_ACCEPT CP")
+    field(INPC, "MCTMONO01:V_ACCEPT CP")
     field(CALC, "MIN(A,C)*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -129,7 +129,7 @@ record(calc, "$(P)HSIZE_CALC4"){
     field(DESC, "Calc for mono beam")
     field(PREC, "$(PREC=3)")
     #DMM X acceptance
-    field(INPA, "MCTDMM:X_ACCEPT CP")
+    field(INPA, "MCTMONO01:H_ACCEPT CP")
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     field(CALC, "A*B/1000")
@@ -151,7 +151,7 @@ record(calc, "$(P)VSIZE_CALC4"){
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     #VBM Y acceptance
-    field(INPC, "MCTDMM:Y_ACCEPT CP")
+    field(INPC, "MCTMONO01:V_ACCEPT CP")
     field(CALC, "MIN(A,C)*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
