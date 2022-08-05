@@ -6,30 +6,12 @@ record(bo, "$(P)OP_MODE"){
     field(PINI, "YES")
 }
 
-#Fixed mask aperture
-record(ai, "MCTSLT01:MSKH")
-{
-    field(DESC, "Slt01 hor mask aperture")
-    field(VAL,  2)
-    field(PINI, "YES")
-    field(PREC, "$(PREC=3)")
-    field(EGU,  "mrad")
-}
-record(ai, "MCTSLT01:MSKV")
-{
-    field(DESC, "Slt01 vert mask aperture")
-    field(VAL,  0.3)
-    field(PINI, "YES")
-    field(PREC, "$(PREC=3)")
-    field(EGU,  "mrad")
-}
-
 #White Beam calc definitions
 record(calc, "$(P)HSIZE_CALC1"){
     field(DESC, "Calc for white beam mode")
     field(PREC, "$(PREC=3)")
     #fixed mask aperture
-    field(INPA, "MCTSLT01:MSKH CP")
+    field(INPA, "MCTMSK01:HSIZE CP")
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     field(CALC, "A*B/1000")
@@ -47,7 +29,7 @@ record(calc, "$(P)VSIZE_CALC1"){
     field(DESC, "Calc for white beam mode")
     field(PREC, "$(PREC=3)")
     #fixed mask aperture
-    field(INPA, "MCTSLT01:MSKV CP")
+    field(INPA, "MCTMSK01:VSIZE CP")
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     field(CALC, "A*B/1000")
@@ -67,7 +49,7 @@ record(calc, "$(P)HSIZE_CALC2"){
     field(DESC, "Calc for pink beam mode")
     field(PREC, "$(PREC=3)")
     #fixed mask aperture
-    field(INPA, "MCTSLT01:MSKH CP")
+    field(INPA, "MCTMSK01:HSIZE CP")
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     field(CALC, "A*B/1000")
@@ -85,7 +67,7 @@ record(calc, "$(P)VSIZE_CALC2"){
     field(DESC, "Calc for pink beam mode")
     field(PREC, "$(PREC=3)")
     #fixed mask aperture
-    field(INPA, "MCTSLT01:MSKV CP")
+    field(INPA, "MCTMSK01:VSIZE CP")
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     #VBM Y acceptance
@@ -125,7 +107,7 @@ record(calc, "$(P)VSIZE_CALC3"){
     field(DESC, "Calc for mono no mirror")
     field(PREC, "$(PREC=3)")
     #fixed mask aperture
-    field(INPA, "MCTSLT01:MSKV CP")
+    field(INPA, "MCTMSK01:VSIZE CP")
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     #VBM Y acceptance
@@ -165,7 +147,7 @@ record(calc, "$(P)VSIZE_CALC4"){
     field(DESC, "Calc for mono beam")
     field(PREC, "$(PREC=3)")
     #fixed mask aperture
-    field(INPA, "MCTSLT01:MSKV CP")
+    field(INPA, "MCTMSK01:VSIZE CP")
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     #VBM Y acceptance

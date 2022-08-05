@@ -98,6 +98,24 @@ record(ai, "MCTTBL04:Z")
     field(EGU,  "mm")
 }
 
+#Fixed mask aperture
+record(ai, "MCTMSK01:HSIZE")
+{
+    field(DESC, "Fixed mask horz. aperture")
+    field(VAL,  2)
+    field(PINI, "YES")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mrad")
+}
+record(ai, "MCTMSK01:VSIZE")
+{
+    field(DESC, "Fixed mask vert. aperture")
+    field(VAL,  0.3)
+    field(PINI, "YES")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mrad")
+}
+
 #Operational mode and other global calculations
 record(calc, "MCT:MODE_CALC")
 {
