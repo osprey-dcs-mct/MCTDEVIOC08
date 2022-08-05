@@ -17,7 +17,7 @@ record(ai, "MCTSLT01:Z")
     field(EGU,  "mm")
 }
 
-record(ai, "MCTDMM:Z1")
+record(ai, "MCTMONO01:Z1")
 {
     field(DESC, "DMM layer 1 Z pos")
     field(VAL,  12126)
@@ -26,7 +26,7 @@ record(ai, "MCTDMM:Z1")
     field(EGU,  "mm")
 }
 
-record(ai, "MCTDMM:Z2")
+record(ai, "MCTMONO01:Z2")
 {
     field(DESC, "DMM layer 2 Z pos")
     field(VAL,  13756)
@@ -44,7 +44,7 @@ record(ai, "MCTSLT02:Z")
     field(EGU,  "mm")
 }
 
-record(ai, "MCTVBM:Z")
+record(ai, "MCTVBM01:Z")
 {
     field(DESC, "VBM Z pos")
     field(VAL,  16091)
@@ -140,23 +140,23 @@ record(mbbi, "MCT:MODE_STS")
 }
 
 #DMM angular acceptance
-record(calc, "MCTDMM:X_ACCEPT")
+record(calc, "MCTMONO01:H_ACCEPT")
 {
-    field(DESC, "Calc for DMM X acceptance")
+    field(DESC, "Calc for DMM horiz. acceptance")
     #DMM stripe dimension
     field(INPA, 22)
-    field(INPB, "MCTDMM:Z1 CP")
+    field(INPB, "MCTMONO01:Z1 CP")
     field(CALC, "(A/B)*1000")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
-record(calc, "MCTDMM:Y_ACCEPT")
+record(calc, "MCTMONO01:V_ACCEPT")
 {
-    field(DESC, "Calc for DMM Y acceptance")
+    field(DESC, "Calc for DMM vert. acceptance")
     #DMM stripe dimension
     field(INPA, 330)
     #DMM ML1 Z
-    field(INPB, "MCTDMM:Z1 CP")
+    field(INPB, "MCTMONO01:Z1 CP")
     #DMM ML1 Pitch
     field(INPC, "MCTMONO01MOT06.RBV CP")
     field(CALC, "A*SIN(C)/B*1000")
@@ -165,22 +165,22 @@ record(calc, "MCTDMM:Y_ACCEPT")
 }
 
 #VBM angular acceptance
-record(calc, "MCTVBM:X_ACCEPT")
+record(calc, "MCTVBM01:H_ACCEPT")
 {
-    field(DESC, "Calc for VBM X acceptance")
+    field(DESC, "Calc for VBM horiz. acceptance")
     #VBM stripe dimension
     field(INPA, 35)
-    field(INPB, "MCTVBM:Z CP")
+    field(INPB, "MCTVBM01:Z CP")
     field(CALC, "(A/B)*1000")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
-record(calc, "MCTVBM:Y_ACCEPT")
+record(calc, "MCTVBM01:V_ACCEPT")
 {
-    field(DESC, "Calc for VBM Y acceptance")
+    field(DESC, "Calc for VBM vert. acceptance")
     #VBM stripe dimension
     field(INPA, 1150)
-    field(INPB, "MCTVBM:Z CP")
+    field(INPB, "MCTVBM01:Z CP")
     #VBM Pitch
     field(INPC, "MCTVBM01:PITCH.RBV CP")
     field(CALC, "A*SIN(C)/B*1000")
