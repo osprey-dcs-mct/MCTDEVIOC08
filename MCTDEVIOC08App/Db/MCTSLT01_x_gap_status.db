@@ -69,7 +69,7 @@ record(bi, "$(P)X_GAP_STATUS") {
     field(OSV,  "NO_ALARM")
 }
 
-record(calc, "$(P)X_ACCEPT") {
+record(calc, "$(P)H_ACCEPT") {
     field(DESC, "Horizontal acceptance")
     field(EGU,  "mrad")
     field(PREC, "3")
