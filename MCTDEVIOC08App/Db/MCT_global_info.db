@@ -143,6 +143,7 @@ record(mbbi, "MCT:MODE_STS")
 record(calc, "MCTMONO01:H_ACCEPT")
 {
     field(DESC, "Calc for DMM horiz. acceptance")
+    field(EGU,  "mrad")
     #DMM stripe dimension
     field(INPA, 22)
     field(INPB, "MCTMONO01:Z1 CP")
@@ -153,13 +154,14 @@ record(calc, "MCTMONO01:H_ACCEPT")
 record(calc, "MCTMONO01:V_ACCEPT")
 {
     field(DESC, "Calc for DMM vert. acceptance")
+    field(EGU,  "mrad")
     #DMM stripe dimension
     field(INPA, 330)
     #DMM ML1 Z
     field(INPB, "MCTMONO01:Z1 CP")
     #DMM ML1 Pitch
     field(INPC, "MCTMONO01MOT06.RBV CP")
-    field(CALC, "A*SIN(C)/B*1000")
+    field(CALC, "A*SIN(C*D2R)/B*1000")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
@@ -168,6 +170,7 @@ record(calc, "MCTMONO01:V_ACCEPT")
 record(calc, "MCTVBM01:H_ACCEPT")
 {
     field(DESC, "Calc for VBM horiz. acceptance")
+    field(EGU,  "mrad")
     #VBM stripe dimension
     field(INPA, 35)
     field(INPB, "MCTVBM01:Z CP")
@@ -178,12 +181,13 @@ record(calc, "MCTVBM01:H_ACCEPT")
 record(calc, "MCTVBM01:V_ACCEPT")
 {
     field(DESC, "Calc for VBM vert. acceptance")
+    field(EGU,  "mrad")
     #VBM stripe dimension
     field(INPA, 1150)
     field(INPB, "MCTVBM01:Z CP")
     #VBM Pitch
     field(INPC, "MCTVBM01:PITCH.RBV CP")
-    field(CALC, "A*SIN(C)/B*1000")
+    field(CALC, "A*SIN(C*D2R)/B*1000")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
