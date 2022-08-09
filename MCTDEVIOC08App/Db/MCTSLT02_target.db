@@ -170,7 +170,7 @@ record(calc, "$(P)VSIZE_CALC4"){
     #DMM vertical acceptance
     field(INPC, "MCTMONO01:V_ACCEPT CP")
     #VBM vertical acceptance
-    field(INPC, "MCTVBM01:V_ACCEPT CP")
+    field(INPD, "MCTVBM01:V_ACCEPT CP")
     field(CALC, "MIN(A,C,D)*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
