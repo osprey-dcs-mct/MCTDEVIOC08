@@ -165,17 +165,15 @@ record(calc, "$(P)HCENTRE_CALC4"){
 record(calc, "$(P)VSIZE_CALC4"){
     field(DESC, "Calc for mono beam with mirror")
     field(PREC, "$(PREC=3)")
-    #fixed mask aperture
-    field(INPA, "MCTMSK01:VSIZE CP")
+    # MCTSLT01 vertical acceptance
+    field(INPA, "MCTSLT01:V_ACCEPT CP")
     #SLT02 Z position
     field(INPB, "MCTSLT02:Z CP")
     #DMM vertical acceptance
     field(INPC, "MCTMONO01:V_ACCEPT CP")
     #VBM vertical acceptance
     field(INPD, "MCTVBM01:V_ACCEPT CP")
-    # MCTSLT01 vertical acceptance
-    field(INPE, "MCTSLT01:V_ACCEPT CP")
-    field(CALC, "MIN(A,C,D,E)*B/1000")
+    field(CALC, "MIN(A,C,D)*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
