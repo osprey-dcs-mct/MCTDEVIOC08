@@ -81,7 +81,9 @@ record(calc, "$(P)VSIZE_CALC2"){
     field(INPB, "MCTSLT02:Z CP")
     #VBM vertical acceptance
     field(INPC, "MCTVBM01:V_ACCEPT CP")
-    field(CALC, "MIN(A,C)*B/1000")
+    # MCTSLT01 vertical acceptance
+    field(INPD, "MCTSLT01:V_ACCEPT CP")
+    field(CALC, "MIN(A,C,D)*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
@@ -171,7 +173,9 @@ record(calc, "$(P)VSIZE_CALC4"){
     field(INPC, "MCTMONO01:V_ACCEPT CP")
     #VBM vertical acceptance
     field(INPD, "MCTVBM01:V_ACCEPT CP")
-    field(CALC, "MIN(A,C,D)*B/1000")
+    # MCTSLT01 vertical acceptance
+    field(INPE, "MCTSLT01:V_ACCEPT CP")
+    field(CALC, "MIN(A,C,D,E)*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
