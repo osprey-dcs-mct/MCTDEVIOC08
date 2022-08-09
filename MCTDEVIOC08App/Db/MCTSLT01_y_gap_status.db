@@ -69,3 +69,27 @@ record(bi, "$(P)Y_GAP_STATUS") {
     field(ONAM, "In posn.")
     field(OSV,  "NO_ALARM")
 }
+
+record(calc, "$(P)V_ACCEPT") {
+    field(DESC, "Vertical acceptance")
+    field(EGU,  "mrad")
+    field(PREC, "3")
+    field(INPA, "$(P)Z")
+    field(INPB, "$(P)VSIZE CP")
+    field(CALC, "B/A*1000")
+    field(PINI, "YES")
+}
+
+record(calc, "$(P)V_ACCEPT_RATIO") {
+    field(DESC, "Vert. acceptance rel. to MSK01")
+    field(EGU,  "%")
+    field(PREC, "1")
+    field(INPA, "MCTMSK01:VSIZE CP")
+    field(INPB, "$(P)V_ACCEPT CP")
+    field(CALC, "B/A*100")
+    field(LOW,  "90")
+    field(LSV,  "MINOR")
+    field(HIGH, "102")
+    field(HSV,  "MINOR")
+    field(PINI, "YES")
+}
