@@ -48,6 +48,7 @@ dbLoadRecords("db/MCTSLT02_x_centre_status.db", "P=$(SLIT2)")
 dbLoadRecords("db/MCTSLT02_y_gap_status.db", "P=$(SLIT2),SLT02Z=$(SLT02Z),VBMZ=$(VBMZ)")
 dbLoadRecords("db/MCTSLT02_y_centre_status.db", "P=$(SLIT2)")
 dbLoadRecords("db/MCTSLT02_overall_status.db", "P=$(SLIT2)")
+dbLoadRecords("db/MCTSLT02_target.db", "P=$(SLIT2),PREC=3")
 
 # SLT03 records
 dbLoadRecords("db/MCTSLT03_x_gap_status.db", "P=$(SLIT3),SLT02Z=$(SLT02Z),SLT03Z=$(SLT03Z)")
