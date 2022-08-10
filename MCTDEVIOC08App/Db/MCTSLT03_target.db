@@ -11,7 +11,7 @@ record(calc, "$(P)HSIZE_CALC1"){
     field(DESC, "Calc for white beam mode")
     field(PREC, "$(PREC=3)")
     #white beam slit horizontal size
-    field(INPA, "MCTSLT02:HSIZE.RBV CP")
+    field(INPA, "MCTSLT02:HSIZE CP")
     #SLT02 Z position
     field(INPB, "MCTSLT02:Z CP")
     #SLT03 Z position
@@ -23,7 +23,7 @@ record(calc, "$(P)HSIZE_CALC1"){
 record(calc, "$(P)HCENTRE_CALC1"){
     field(DESC, "Calc for white beam mode")
     field(PREC, "$(PREC=3)")
-    field(INPA, "MCTSLT02:HCENTRE.RBV CP")
+    field(INPA, "MCTSLT02:HCENTRE CP")
     field(CALC, "A")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -32,7 +32,7 @@ record(calc, "$(P)VSIZE_CALC1"){
     field(DESC, "Calc for white beam mode")
     field(PREC, "$(PREC=3)")
     #white beam slit vertical size
-    field(INPA, "MCTSLT01:VSIZE.RBV CP")
+    field(INPA, "MCTSLT01:VSIZE CP")
     #SLT02 Z position
     field(INPB, "MCTSLT02:Z CP")
     #SLT03 Z position
@@ -44,7 +44,7 @@ record(calc, "$(P)VSIZE_CALC1"){
 record(calc, "$(P)VCENTRE_CALC1"){
     field(DESC, "Calc for white beam mode")
     field(PREC, "$(PREC=3)")
-    field(INPA, "MCTSLT02:VCENTRE.RBV CP")
+    field(INPA, "MCTSLT02:VCENTRE CP")
     field(CALC, "A")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -55,7 +55,7 @@ record(calc, "$(P)HSIZE_CALC2"){
     field(DESC, "Calc for pink beam mode")
     field(PREC, "$(PREC=3)")
     #white beam slit horizontal size
-    field(INPA, "MCTSLT02:HSIZE.RBV CP")
+    field(INPA, "MCTSLT02:HSIZE CP")
     #SLT02 Z position
     field(INPB, "MCTSLT02:Z CP")
     #SLT03 Z position
@@ -67,7 +67,7 @@ record(calc, "$(P)HSIZE_CALC2"){
 record(calc, "$(P)HCENTRE_CALC2"){
     field(DESC, "Calc for pink beam mode")
     field(PREC, "$(PREC=3)")
-    field(INPA, "MCTSLT02:HCENTRE.RBV CP")
+    field(INPA, "MCTSLT02:HCENTRE CP")
     field(CALC, "A")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -75,7 +75,7 @@ record(calc, "$(P)HCENTRE_CALC2"){
 record(calc, "$(P)VSIZE_CALC2"){
     field(DESC, "Calc for pink beam mode")
     field(PREC, "$(PREC=3)")
-    field(INPA, "MCTSLT02:VSIZE.RBV CP")
+    field(INPA, "MCTSLT02:VSIZE CP")
     #SLT02 Z position
     field(INPB, "MCTSLT02:Z CP")
     field(INPC, "MCTSLT03:Z CP")
@@ -86,8 +86,8 @@ record(calc, "$(P)VSIZE_CALC2"){
 record(calc, "$(P)VCENTRE_CALC2"){
     field(DESC, "Calc for pink beam mode")
     field(PREC, "$(PREC=3)")
-    field(INPA, "MCTVBM01:HEIGHT.RBV CP")
-    field(INPB, "MCTVBM01:PITCH.RBV CP")
+    field(INPA, "MCTVBM01:HEIGHT CP")
+    field(INPB, "MCTVBM01:PITCH CP")
     field(INPC, "MCTSLT03:Z CP")
     field(INPD, "MCTVBM01:Z CP")
     field(CALC, "A+(B*2*(C-D)/1000)")
@@ -100,7 +100,7 @@ record(calc, "$(P)HSIZE_CALC3"){
     field(DESC, "Calc for mono no mirror")
     field(PREC, "$(PREC=3)")
     #white beam slit horizontal size
-    field(INPA, "MCTSLT02:HSIZE.RBV CP")
+    field(INPA, "MCTSLT02:HSIZE CP")
     #SLT02 Z position
     field(INPB, "MCTSLT02:Z CP")
     #SLT03 Z position
@@ -112,7 +112,7 @@ record(calc, "$(P)HSIZE_CALC3"){
 record(calc, "$(P)HCENTRE_CALC3"){
     field(DESC, "Calc for mono no mirror")
     field(PREC, "$(PREC=3)")
-    field(INPA, "MCTSLT02:HCENTRE.RBV CP")
+    field(INPA, "MCTSLT02:HCENTRE CP")
     field(CALC, "A")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -120,7 +120,7 @@ record(calc, "$(P)HCENTRE_CALC3"){
 record(calc, "$(P)VSIZE_CALC3"){
     field(DESC, "Calc for mono no mirror")
     field(PREC, "$(PREC=3)")
-    field(INPA, "MCTSLT02:VSIZE.RBV CP")
+    field(INPA, "MCTSLT02:VSIZE CP")
     #SLT02 Z position
     field(INPB, "MCTSLT02:Z CP")
     #SLT03 Z position
@@ -132,7 +132,7 @@ record(calc, "$(P)VSIZE_CALC3"){
 record(calc, "$(P)VCENTRE_CALC3"){
     field(DESC, "Calc for mono no mirror")
     field(PREC, "$(PREC=3)")
-    field(INPA, "MCTSLT02:VCENTRE.RBV CP")
+    field(INPA, "MCTSLT02:VCENTRE CP")
     field(CALC, "A")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -142,7 +142,7 @@ record(calc, "$(P)VCENTRE_CALC3"){
 record(calc, "$(P)HSIZE_CALC4"){
     field(DESC, "Calc for mono beam with mirror")
     field(PREC, "$(PREC=3)")
-    field(INPA, "MCTSLT02:HSIZE.RBV CP")
+    field(INPA, "MCTSLT02:HSIZE CP")
     #SLT02 Z position
     field(INPB, "MCTSLT02:Z CP")
     #SLT03 Z position
@@ -154,7 +154,7 @@ record(calc, "$(P)HSIZE_CALC4"){
 record(calc, "$(P)HCENTRE_CALC4"){
     field(DESC, "Calc for mono beam with mirror")
     field(PREC, "$(PREC=3)")
-    field(INPA, "MCTSLT02:HCENTRE.RBV CP")
+    field(INPA, "MCTSLT02:HCENTRE CP")
     field(CALC, "A")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -162,7 +162,7 @@ record(calc, "$(P)HCENTRE_CALC4"){
 record(calc, "$(P)VSIZE_CALC4"){
     field(DESC, "Calc for mono beam with mirror")
     field(PREC, "$(PREC=3)")
-    field(INPA, "MCTSLT02:VSIZE.RBV CP")
+    field(INPA, "MCTSLT02:VSIZE CP")
     #SLT02 Z position
     field(INPB, "MCTSLT02:Z CP")
     #SLT03 Z position
@@ -174,8 +174,8 @@ record(calc, "$(P)VSIZE_CALC4"){
 record(calc, "$(P)VCENTRE_CALC4"){
     field(DESC, "Calc for mono beam with mirror")
     field(PREC, "$(PREC=3)")
-    field(INPA, "MCTVBM01:HEIGHT.RBV CP")
-    field(INPB, "MCTVBM01:PITCH.RBV CP")
+    field(INPA, "MCTVBM01:HEIGHT CP")
+    field(INPB, "MCTVBM01:PITCH CP")
     field(INPC, "MCTSLT03:Z CP")
     field(INPD, "MCTVBM01:Z CP")
     field(CALC, "A+(B*2*(C-D)/1000)")
