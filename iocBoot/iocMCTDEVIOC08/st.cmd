@@ -56,8 +56,7 @@ dbLoadRecords("db/MCTSLT03_x_centre_status.db", "P=$(SLIT3)")
 dbLoadRecords("db/MCTSLT03_y_gap_status.db", "P=$(SLIT3),SLT02Z=$(SLT02Z),SLT03Z=$(SLT03Z),VBMZ=$(VBMZ)")
 dbLoadRecords("db/MCTSLT03_y_centre_status.db", "P=$(SLIT3),SLT02Z=$(SLT02Z),SLT03Z=$(SLT03Z),VBMZ=$(VBMZ)")
 dbLoadRecords("db/MCTSLT03_overall_status.db", "P=$(SLIT3)")
-dbLoadRecords("db/MCTSLT02_target.db", "P=$(SLIT3),PREC=3")
-
+dbLoadRecords("db/MCTSLT03_target.db", "P=$(SLIT3),PREC=3")
 
 cd "${TOP}/iocBoot/${IOC}"
 iocInit
