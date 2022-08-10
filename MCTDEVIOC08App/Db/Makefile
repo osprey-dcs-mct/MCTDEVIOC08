@@ -22,6 +22,7 @@ DB += MCTSLT02_y_gap_status.db
 DB += MCTSLT02_y_centre_status.db
 DB += MCTSLT02_overall_status.db
 
+DB += MCTSLT03_target.db
 DB += MCTSLT03_x_gap_status.db
 DB += MCTSLT03_x_centre_status.db
 DB += MCTSLT03_y_gap_status.db
