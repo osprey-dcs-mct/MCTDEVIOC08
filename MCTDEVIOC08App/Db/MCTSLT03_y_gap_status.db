@@ -1,36 +1,29 @@
-record(calc, "$(P)Y_GAP") {
-    field(DESC, "Calculated gap")
-    field(INPA, "MCTSLT03MOT03.RBV CPP")
-    field(INPB, "MCTSLT03MOT04.RBV CPP")
-    field(CALC, "A-B")
-}
-
-record(calc, "$(P)Y_GAP_TARGET1") {
+record(calc, "$(P)VSIZE_TARGET1") {
     field(DESC, "Tgt gap when VBM out")
-    field(INPA, "MCTSLT02:Y_GAP CPP")
+    field(INPA, "MCTSLT02:VSIZE CPP")
     field(INPB, "$(SLT02Z)")
     field(INPC, "$(SLT03Z)")
     field(CALC, "A*(C/B)")
 }
 
-record(calc, "$(P)Y_GAP_STATUS1"){
+record(calc, "$(P)VSIZE_STATUS1"){
     field(DESC, "Status if VBM out")
-    field(INPA, "$(P)Y_GAP CP")
-    field(INPB, "$(P)Y_GAP_TARGET1 CP")
+    field(INPA, "$(P)VSIZE CP")
+    field(INPB, "$(P)VSIZE_TARGET1 CP")
     field(INPC, "22.0")
     field(CALC, "A>0&&A<B+C")
 
     info(autosaveFields, "C")
 }
 
-record(calcout, "$(P)Y_GAP_CALC"){
+record(calcout, "$(P)VSIZE_CALC"){
     field(DESC, "Select calc based on VBM status")
-    field(INPC, "$(P)Y_GAP_STATUS1 CP")
+    field(INPC, "$(P)VSIZE_STATUS1 CP")
     field(CALC, "C")
-    field(OUT,  "$(P)Y_GAP_STATUS PP")
+    field(OUT,  "$(P)VSIZE_STATUS PP")
 }
 
-record(bi, "$(P)Y_GAP_STATUS") {
+record(bi, "$(P)VSIZE_STATUS") {
     field(DESC, "X gap status based on VBM")
     field(ZNAM, "Not in pos.")
     field(ZSV,  "MINOR")

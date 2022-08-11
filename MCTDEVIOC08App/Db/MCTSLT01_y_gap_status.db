@@ -1,43 +1,36 @@
-record(calc, "$(P)Y_GAP") {
-    field(DESC, "Calculated gap")
-    field(INPA, "MCTSLT01MOT03.RBV CPP")
-    field(INPB, "MCTSLT01MOT04.RBV CPP")
-    field(CALC, "A-B")
-}
-
-record(ai, "$(P)Y_GAP_TARGET1") {
+record(ai, "$(P)VSIZE_TARGET1") {
     field(DESC, "Tgt gap when DMM and VBM are out")
     field(VAL,  "10.0")
 
     info(autosaveFields, "VAL")
 }
 
-record(calc, "$(P)Y_GAP_STATUS1"){
+record(calc, "$(P)VSIZE_STATUS1"){
     field(DESC, "Status if DMM and VBM are out")
-    field(INPA, "$(P)Y_GAP CP")
-    field(INPB, "$(P)Y_GAP_TARGET1 CP")
+    field(INPA, "$(P)VSIZE CP")
+    field(INPB, "$(P)VSIZE_TARGET1 CP")
     field(INPC, "0.1")
     field(CALC, "A>0&&A<B+C")
 }
 
-record(ai, "$(P)Y_GAP_TARGET2") {
+record(ai, "$(P)VSIZE_TARGET2") {
     field(DESC, "Tgt gap when DMM is in")
     field(VAL,  "5.0")
 
     info(autosaveFields, "VAL")
 }
 
-record(calc, "$(P)Y_GAP_STATUS2"){
+record(calc, "$(P)VSIZE_STATUS2"){
     field(DESC, "Status if DMM is in")
-    field(INPA, "$(P)Y_GAP CP")
-    field(INPB, "$(P)Y_GAP_TARGET2 CP")
+    field(INPA, "$(P)VSIZE CP")
+    field(INPB, "$(P)VSIZE_TARGET2 CP")
     field(INPC, "0.1")
     field(CALC, "A>0&&A<B+C")
 }
 
-record(calc, "$(P)Y_GAP_STATUS3"){
+record(calc, "$(P)VSIZE_STATUS3"){
     field(DESC, "Status when DMM out and VBM in")
-    field(INPA, "$(P)Y_GAP CP")
+    field(INPA, "$(P)VSIZE CP")
     # SLT01 Z pos
     field(INPB, "$(SLT01Z)")
     # VBM Z pos
@@ -51,18 +44,18 @@ record(calc, "$(P)Y_GAP_STATUS3"){
     field(CALC, "A>0&&A<H+G")
 }
 
-record(calcout, "$(P)Y_GAP_CALC"){
+record(calcout, "$(P)VSIZE_CALC"){
     field(DESC, "Select calc based on VBM and DMM status")
     field(INPA, "MCTMONO01:IN_SERVICE CP")
     field(INPB, "MCTVBM01:IN_SERVICE CP")
-    field(INPC, "$(P)Y_GAP_STATUS1 CP")
-    field(INPD, "$(P)Y_GAP_STATUS2 CP")
-    field(INPE, "$(P)Y_GAP_STATUS3 CP")
+    field(INPC, "$(P)VSIZE_STATUS1 CP")
+    field(INPD, "$(P)VSIZE_STATUS2 CP")
+    field(INPE, "$(P)VSIZE_STATUS3 CP")
     field(CALC, "!(A||B)?C:(A?D:E)")
-    field(OUT,  "$(P)Y_GAP_STATUS PP")
+    field(OUT,  "$(P)VSIZE_STATUS PP")
 }
 
-record(bi, "$(P)Y_GAP_STATUS") {
+record(bi, "$(P)VSIZE_STATUS") {
     field(DESC, "X gap status based on DMM and VBM")
     field(ZNAM, "Not in pos.")
     field(ZSV,  "MINOR")

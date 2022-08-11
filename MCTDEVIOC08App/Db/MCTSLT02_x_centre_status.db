@@ -1,36 +1,29 @@
-record(calc, "$(P)X_CENTRE") {
-    field(DESC, "Calculated centre")
-    field(INPA, "MCTSLT02MOT01.RBV CPP")
-    field(INPB, "MCTSLT02MOT02.RBV CPP")
-    field(CALC, "(A+B)/2")
-}
-
-record(ai, "$(P)X_CENTRE_TARGET1") {
+record(ai, "$(P)HCENTRE_TARGET1") {
     field(DESC, "Tgt centre")
     field(VAL,  "0.0")
 
     info(autosaveFields, "VAL")
 }
 
-record(calc, "$(P)X_CENTRE_STATUS1"){
+record(calc, "$(P)HCENTRE_STATUS1"){
     field(DESC, "Status")
-    field(INPA, "$(P)X_CENTRE CP")
-    field(INPB, "$(P)X_CENTRE_TARGET1 CP")
+    field(INPA, "$(P)HCENTRE CP")
+    field(INPB, "$(P)HCENTRE_TARGET1 CP")
     field(INPC, "0.1")
     field(CALC, "ABS(A-B)<C")
 }
 
-record(calcout, "$(P)X_CENTRE_CALC"){
+record(calcout, "$(P)HCENTRE_CALC"){
     field(DESC, "Push calculation to status PV")
     field(PINI, "YES")
     #field(INPA, "MCTMONO01:IN_SERVICE CP")
     #field(INPB, "MCTVBM01:IN_SERVICE CP")
-    field(INPC, "$(P)X_CENTRE_STATUS1 CP")
+    field(INPC, "$(P)HCENTRE_STATUS1 CP")
     field(CALC, "C")
-    field(OUT,  "$(P)X_CENTRE_STATUS PP")
+    field(OUT,  "$(P)HCENTRE_STATUS PP")
 }
 
-record(bi, "$(P)X_CENTRE_STATUS") {
+record(bi, "$(P)HCENTRE_STATUS") {
     field(DESC, "X centre status based on DMM and VBM")
     field(ZNAM, "Not in pos.")
     field(ZSV,  "MINOR")

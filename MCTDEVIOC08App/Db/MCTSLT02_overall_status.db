@@ -1,10 +1,10 @@
 record(calcout, "$(P)IN_POSITION_CALC") {
     field(DESC, "Pre-mirror slit pos. status calc.")
     field(PINI, "YES")
-    field(INPA, "$(P)X_GAP_STATUS CPP")
-    field(INPB, "$(P)X_CENTRE_STATUS CPP")
-    field(INPC, "$(P)Y_GAP_STATUS CPP")
-    field(INPD, "$(P)Y_CENTRE_STATUS CPP")
+    field(INPA, "$(P)HSIZE_STATUS CPP")
+    field(INPB, "$(P)HCENTRE_STATUS CPP")
+    field(INPC, "$(P)VSIZE_STATUS CPP")
+    field(INPD, "$(P)VCENTRE_STATUS CPP")
     field(CALC, "A&&B&&C&&D")
     field(OUT,  "$(P)IN_POSITION PP")
 }

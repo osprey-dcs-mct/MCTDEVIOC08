@@ -1,67 +1,60 @@
-record(calc, "$(P)X_GAP") {
-    field(DESC, "Calculated gap")
-    field(INPA, "MCTSLT01MOT01.RBV CPP")
-    field(INPB, "MCTSLT01MOT02.RBV CPP")
-    field(CALC, "B-A")
-}
-
-record(ai, "$(P)X_GAP_TARGET1") {
+record(ai, "$(P)HSIZE_TARGET1") {
     field(DESC, "Tgt gap when DMM and VBM are out")
     field(VAL,  "16.0")
 
     info(autosaveFields, "VAL")
 }
 
-record(calc, "$(P)X_GAP_STATUS1"){
+record(calc, "$(P)HSIZE_STATUS1"){
     field(DESC, "Status if DMM and VBM are out")
-    field(INPA, "$(P)X_GAP CP")
-    field(INPB, "$(P)X_GAP_TARGET1 CP")
+    field(INPA, "$(P)HSIZE CP")
+    field(INPB, "$(P)HSIZE_TARGET1 CP")
     field(INPC, "0.1")
     field(CALC, "A>0&&A<B+C")
 }
 
-record(ai, "$(P)X_GAP_TARGET2") {
+record(ai, "$(P)HSIZE_TARGET2") {
     field(DESC, "Tgt gap when DMM is in")
     field(VAL,  "12.6")
 
     info(autosaveFields, "VAL")
 }
 
-record(calc, "$(P)X_GAP_STATUS2"){
+record(calc, "$(P)HSIZE_STATUS2"){
     field(DESC, "Status if DMM is in")
-    field(INPA, "$(P)X_GAP CP")
-    field(INPB, "$(P)X_GAP_TARGET2 CP")
+    field(INPA, "$(P)HSIZE CP")
+    field(INPB, "$(P)HSIZE_TARGET2 CP")
     field(INPC, "0.1")
     field(CALC, "A>0&&A<B+C")
 }
 
-record(ai, "$(P)X_GAP_TARGET3") {
+record(ai, "$(P)HSIZE_TARGET3") {
     field(DESC, "Tgt gap when DMM out and VBM in")
     field(VAL,  "15.0")
 
     info(autosaveFields, "VAL")
 }
 
-record(calc, "$(P)X_GAP_STATUS3"){
+record(calc, "$(P)HSIZE_STATUS3"){
     field(DESC, "Status when DMM out and VBM in")
-    field(INPA, "$(P)X_GAP CP")
-    field(INPB, "$(P)X_GAP_TARGET3 CP")
+    field(INPA, "$(P)HSIZE CP")
+    field(INPB, "$(P)HSIZE_TARGET3 CP")
     field(INPC, "0.1")
     field(CALC, "A>0&&A<B+C")
 }
 
-record(calcout, "$(P)X_GAP_CALC"){
+record(calcout, "$(P)HSIZE_CALC"){
     field(DESC, "Select calc based on VBM and DMM status")
     field(INPA, "MCTMONO01:IN_SERVICE CP")
     field(INPB, "MCTVBM01:IN_SERVICE CP")
-    field(INPC, "$(P)X_GAP_STATUS1 CP")
-    field(INPD, "$(P)X_GAP_STATUS2 CP")
-    field(INPE, "$(P)X_GAP_STATUS3 CP")
+    field(INPC, "$(P)HSIZE_STATUS1 CP")
+    field(INPD, "$(P)HSIZE_STATUS2 CP")
+    field(INPE, "$(P)HSIZE_STATUS3 CP")
     field(CALC, "!(A||B)?C:(A?D:E)")
-    field(OUT,  "$(P)X_GAP_STATUS PP")
+    field(OUT,  "$(P)HSIZE_STATUS PP")
 }
 
-record(bi, "$(P)X_GAP_STATUS") {
+record(bi, "$(P)HSIZE_STATUS") {
     field(DESC, "X gap status based on DMM and VBM")
     field(ZNAM, "Not in pos.")
     field(ZSV,  "MINOR")

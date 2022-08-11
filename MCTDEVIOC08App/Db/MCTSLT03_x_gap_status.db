@@ -1,22 +1,15 @@
-record(calc, "$(P)X_GAP") {
-    field(DESC, "Calculated gap")
-    field(INPA, "MCTSLT03MOT01.RBV CPP")
-    field(INPB, "MCTSLT03MOT02.RBV CPP")
-    field(CALC, "B-A")
-}
-
-record(calc, "$(P)X_GAP_TARGET1") {
+record(calc, "$(P)HSIZE_TARGET1") {
     field(DESC, "Tgt gap")
-    field(INPA, "MCTSLT02:X_GAP CP")
+    field(INPA, "MCTSLT02:HSIZE CP")
     field(INPB, "$(SLT02Z)")
     field(INPC, "$(SLT03Z)")
     field(CALC, "A*(C/B)")
 }
 
-record(calc, "$(P)X_GAP_STATUS1"){
+record(calc, "$(P)HSIZE_STATUS1"){
     field(DESC, "Status if VBM out")
-    field(INPA, "$(P)X_GAP CP")
-    field(INPB, "$(P)X_GAP_TARGET1 CP")
+    field(INPA, "$(P)HSIZE CP")
+    field(INPB, "$(P)HSIZE_TARGET1 CP")
     field(INPC, "3.0")
     field(INPD, "0.0")
     field(CALC, "A>D&&A<B+C")
@@ -24,14 +17,14 @@ record(calc, "$(P)X_GAP_STATUS1"){
     info(autosaveFields, "C")
 }
 
-record(calcout, "$(P)X_GAP_CALC"){
+record(calcout, "$(P)HSIZE_CALC"){
     field(DESC, "Select calc based on VBM and DMM status")
-    field(INPC, "$(P)X_GAP_STATUS1 CP")
+    field(INPC, "$(P)HSIZE_STATUS1 CP")
     field(CALC, "C")
-    field(OUT,  "$(P)X_GAP_STATUS PP")
+    field(OUT,  "$(P)HSIZE_STATUS PP")
 }
 
-record(bi, "$(P)X_GAP_STATUS") {
+record(bi, "$(P)HSIZE_STATUS") {
     field(DESC, "X gap status based on VBM")
     field(ZNAM, "Not in pos.")
     field(ZSV,  "MINOR")
