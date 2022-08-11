@@ -32,7 +32,7 @@ record(calc, "$(P)VSIZE_CALC1"){
     field(DESC, "Calc for white beam mode")
     field(PREC, "$(PREC=3)")
     #white beam slit vertical size
-    field(INPA, "MCTSLT01:VSIZE CP")
+    field(INPA, "MCTSLT02:VSIZE CP")
     #SLT02 Z position
     field(INPB, "MCTSLT02:Z CP")
     #SLT03 Z position
@@ -179,7 +179,6 @@ record(calc, "$(P)VCENTRE_CALC4"){
     field(INPC, "MCTSLT03:Z CP")
     field(INPD, "MCTVBM01:Z CP")
     field(CALC, "A+(B*2*(C-D)/1000)")
-    field(CALC, "A")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
