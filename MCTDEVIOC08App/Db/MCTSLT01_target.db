@@ -263,3 +263,23 @@ record(dfanout, "$(P)VCENTRE_MOVE"){
     field(OMSL, "closed_loop")
     field(OUTA, "MCTSLT01:VCENTRE PP")
 }
+
+# Move record for full slit assembly
+record(sseq, "$(P)ALL_MOVE") {
+    field(DESC, "Move all slit axes")
+    field(SELM, "All")
+    field(SDIS, "$(P)OP_MODE CP")
+    field(DISV, 0)
+    field(DOL1, "$(P)HSIZE_CALC")
+    field(LNK1, "MCTSLT01:HSIZE CA")
+    field(WAIT1, "After2")
+    field(DOL2, "$(P)VSIZE_CALC")
+    field(LNK2, "MCTSLT01:VSIZE CA")
+    field(WAIT2, "Wait")
+    field(DOL3, "$(P)HCENTRE_CALC")
+    field(LNK3, "MCTSLT01:HCENTRE CA")
+    field(WAIT3, "After4")
+    field(DOL4, "$(P)VCENTRE_CALC")
+    field(LNK4, "MCTSLT01:VCENTRE CA")
+    field(WAIT4, "Wait")
+}

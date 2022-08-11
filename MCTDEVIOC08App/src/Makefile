@@ -17,9 +17,11 @@ MCTDEVIOC08_DBD += base.dbd
 
 # Include dbd files from all support applications:
 MCTDEVIOC08_DBD += asSupport.dbd
+MCTDEVIOC08_DBD += stdSupport.dbd
 
 # Add all the support libraries needed by this IOC
 MCTDEVIOC08_LIBS += autosave
+MCTDEVIOC08_LIBS += std
 
 # MCTDEVIOC08_registerRecordDeviceDriver.cpp derives from MCTDEVIOC08.dbd
 MCTDEVIOC08_SRCS += MCTDEVIOC08_registerRecordDeviceDriver.cpp

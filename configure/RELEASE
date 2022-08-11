@@ -35,6 +35,7 @@ BUNDLE=/controls_sw/prod/centos_stream8-64/bundle_0030
 #
 AUTOSAVE=$(BUNDLE)/epics/autosave
 AUTOSAVESETUP=$(BUNDLE)/epics/autosaveSetup
+STD=$(BUNDLE)/epics/std
 
 # All IOCs should include standard bundle/IOC status.
 #
