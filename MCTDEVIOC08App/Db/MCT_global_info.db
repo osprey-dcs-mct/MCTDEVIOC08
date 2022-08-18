@@ -191,3 +191,4 @@ record(calc, "MCTVBM01:V_ACCEPT")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
+
