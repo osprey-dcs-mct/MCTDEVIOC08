@@ -43,7 +43,7 @@ record(calc, "$(P)VCENTRE_STATUS3"){
     field(CALC, "ABS(A-B)<C")
 }
 
-record(calcout, "$(P)VCENTRE_CALC"){
+record(calcout, "$(P)VCENTRE_STATUS_CALC"){
     field(DESC, "Select calc based on VBM and DMM status")
     field(INPA, "MCTMONO01:IN_SERVICE CP")
     field(INPB, "MCTVBM01:IN_SERVICE CP")

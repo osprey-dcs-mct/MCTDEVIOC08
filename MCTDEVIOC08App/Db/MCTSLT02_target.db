@@ -209,7 +209,7 @@ record(ao, "$(P)HSIZE_AUTO"){
 record(dfanout, "$(P)HSIZE_MOVE"){
     field(DOL, "$(P)HSIZE_CALC")
     field(OMSL, "closed_loop")
-    field(OUTA, "MCTSLT02:HSIZE PP")
+    #field(OUTA, "MCTSLT02:HSIZE PP")
 }
 
 #HCENTRE move calc/records
@@ -234,7 +234,7 @@ record(ao, "$(P)HCENTRE_AUTO"){
 record(dfanout, "$(P)HCENTRE_MOVE"){
     field(DOL, "$(P)HCENTRE_CALC")
     field(OMSL, "closed_loop")
-    field(OUTA, "MCTSLT02:HCENTRE PP")
+    #field(OUTA, "MCTSLT02:HCENTRE PP")
 }
 
 #VSIZE move calc/records
@@ -259,7 +259,7 @@ record(ao, "$(P)VSIZE_AUTO"){
 record(dfanout, "$(P)VSIZE_MOVE"){
     field(DOL, "$(P)VSIZE_CALC")
     field(OMSL, "closed_loop")
-    field(OUTA, "MCTSLT02:VSIZE PP")
+    #field(OUTA, "MCTSLT02:VSIZE PP")
 }
 
 #VCENTRE move calc/records
@@ -284,5 +284,5 @@ record(ao, "$(P)VCENTRE_AUTO"){
 record(dfanout, "$(P)VCENTRE_MOVE"){
     field(DOL, "$(P)VCENTRE_CALC")
     field(OMSL, "closed_loop")
-    field(OUTA, "MCTSLT02:VCENTRE PP")
+    #field(OUTA, "MCTSLT02:VCENTRE PP")
 }

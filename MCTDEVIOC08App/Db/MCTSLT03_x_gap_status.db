@@ -17,7 +17,7 @@ record(calc, "$(P)HSIZE_STATUS1"){
     info(autosaveFields, "C")
 }
 
-record(calcout, "$(P)HSIZE_CALC"){
+record(calcout, "$(P)HSIZE_STATUS_CALC"){
     field(DESC, "Select calc based on VBM and DMM status")
     field(INPC, "$(P)HSIZE_STATUS1 CP")
     field(CALC, "C")

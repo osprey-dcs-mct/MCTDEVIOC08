@@ -43,7 +43,7 @@ record(calc, "$(P)HSIZE_STATUS3"){
     field(CALC, "A>0&&A<B+C")
 }
 
-record(calcout, "$(P)HSIZE_CALC"){
+record(calcout, "$(P)HSIZE_STATUS_CALC"){
     field(DESC, "Select calc based on VBM and DMM status")
     field(INPA, "MCTMONO01:IN_SERVICE CP")
     field(INPB, "MCTVBM01:IN_SERVICE CP")

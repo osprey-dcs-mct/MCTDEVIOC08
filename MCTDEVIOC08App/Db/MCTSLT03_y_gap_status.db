@@ -16,7 +16,7 @@ record(calc, "$(P)VSIZE_STATUS1"){
     info(autosaveFields, "C")
 }
 
-record(calcout, "$(P)VSIZE_CALC"){
+record(calcout, "$(P)VSIZE_STATUS_CALC"){
     field(DESC, "Select calc based on VBM status")
     field(INPC, "$(P)VSIZE_STATUS1 CP")
     field(CALC, "C")

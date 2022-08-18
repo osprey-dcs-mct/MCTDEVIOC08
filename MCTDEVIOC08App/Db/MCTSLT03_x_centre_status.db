@@ -13,7 +13,7 @@ record(calc, "$(P)HCENTRE_STATUS1"){
     field(CALC, "ABS(A-B)<C")
 }
 
-record(calcout, "$(P)HCENTRE_CALC"){
+record(calcout, "$(P)HCENTRE_STATUS_CALC"){
     field(DESC, "Push calculation to status PV")
     field(PINI, "YES")
     field(INPC, "$(P)HCENTRE_STATUS1 CP")
