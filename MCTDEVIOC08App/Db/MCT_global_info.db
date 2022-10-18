@@ -10,7 +10,7 @@ record(ai, "MCTMSK:Z")
 
 record(ai, "MCTSLT01:Z")
 {
-    field(DESC, "Slit 01 Z pos")
+    field(DESC, "Slit A Z pos")
     field(VAL,  10439)
     field(PINI, "YES")
     field(PREC, "$(PREC=3)")
@@ -26,6 +26,24 @@ record(ai, "MCTMONO01:Z1")
     field(EGU,  "mm")
 }
 
+record(ai, "MCTMONO01:Z2_MIN")
+{
+    field(DESC, "DMM layer 2 minimum Z pos")
+    field(VAL,  12504.4)
+    field(PINI, "YES")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mm")
+}
+
+record(ai, "MCTMONO01:Z2_MAX")
+{
+    field(DESC, "DMM layer 2 maximum Z pos")
+    field(VAL,  13756)
+    field(PINI, "YES")
+    field(PREC, "$(PREC=3)")
+    field(EGU,  "mm")
+}
+
 record(ai, "MCTMONO01:Z2")
 {
     field(DESC, "DMM layer 2 Z pos")
@@ -35,9 +53,27 @@ record(ai, "MCTMONO01:Z2")
     field(EGU,  "mm")
 }
 
+record(ai, "MCTMONO01:STRIPE_LEN")
+{
+    field(DESC, "DMM multilayer stripe length")
+    field(VAL,  "330")
+    field(PINI, "YES")
+    field(PREC, "2")
+    field(EGU,  "mm")
+}
+
+record(ai, "MCTMONO01:STRIPE_WIDTH")
+{
+    field(DESC, "DMM multilayer stripe width")
+    field(VAL,  "22")
+    field(PINI, "YES")
+    field(PREC, "2")
+    field(EGU,  "mm")
+}
+
 record(ai, "MCTSLT02:Z")
 {
-    field(DESC, "Slit 02 Z pos")
+    field(DESC, "Slit B Z pos")
     field(VAL,  14840)
     field(PINI, "YES")
     field(PREC, "$(PREC=3)")
@@ -55,7 +91,7 @@ record(ai, "MCTVBM01:Z")
 
 record(ai, "MCTSLT03:Z")
 {
-    field(DESC, "Slit 03 Z pos")
+    field(DESC, "Slit C Z pos")
     field(VAL,  18700)
     field(PINI, "YES")
     field(PREC, "$(PREC=3)")
@@ -145,9 +181,10 @@ record(calc, "MCTMONO01:H_ACCEPT")
     field(DESC, "Calc for DMM horiz. acceptance")
     field(EGU,  "mrad")
     #DMM stripe dimension
-    field(INPA, 22)
-    field(INPB, "MCTMONO01:Z1 CP")
-    field(CALC, "(A/B)*1000")
+    field(INPA, "MCTMONO01:STRIPE_WIDTH CP")
+    field(INPB, "MCTMONO01:Z2_MAX CP")
+    field(INPC, "MCTMONO01:STRIPE_LEN CP")
+    field(CALC, "(A/(B+C/2))*1000")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
@@ -156,11 +193,11 @@ record(calc, "MCTMONO01:V_ACCEPT")
     field(DESC, "Calc for DMM vert. acceptance")
     field(EGU,  "mrad")
     #DMM stripe dimension
-    field(INPA, 330)
+    field(INPA, "MCTMONO01:STRIPE_LEN CP")
     #DMM ML1 Z
     field(INPB, "MCTMONO01:Z1 CP")
     #DMM ML1 Pitch
-    field(INPC, "MCTMONO01MOT06.RBV CP")
+    field(INPC, "MCTMONO01MOT06 CP")
     field(CALC, "A*SIN(C*D2R)/B*1000")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
@@ -185,10 +222,69 @@ record(calc, "MCTVBM01:V_ACCEPT")
     #VBM stripe dimension
     field(INPA, 1150)
     field(INPB, "MCTVBM01:Z CP")
-    #VBM Pitch
-    field(INPC, "MCTVBM01:PITCH.RBV CP")
+    #VBM Pitch  
+    field(INPC, "MCTVBM01:PITCH_USER CP")
     field(CALC, "A*SIN(C*D2R)/B*1000")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
 
+# In-service positions
+record(ai, "MCTMONO01:Y1_IN_POS")
+{
+    field(DESC, "DMM Y1 In-service Pos")
+    field(EGU, "mm")
+    field(VAL, "0.0")
+    field(PREC, "$(PREC=3)")
+    field(PINI, "YES")
+}
+
+#Parked Positions for out of service
+record(ai, "MCTMONO01:Y1_PARK_POS")
+{
+    field(DESC, "DMM Y1 Park Pos")
+    field(EGU, "mm")
+    field(VAL, "-10.0")
+    field(PREC, "$(PREC=3)")
+    field(PINI, "YES")
+}
+record(ai, "MCTMONO01:Y2_PARK_POS")
+{
+    field(DESC, "DMM Y2 Park Pos")
+    field(EGU, "mm")
+    field(VAL, "29.0")
+    field(PREC, "$(PREC=3)")
+    field(PINI, "YES")
+}
+record(ai, "MCTMONO01:P1_PARK_POS")
+{
+    field(DESC, "DMM P1 Park Pos")
+    field(EGU, "mrad")
+    field(VAL, "0.0")
+    field(PREC, "$(PREC=3)")
+    field(PINI, "YES")
+}
+record(ai, "MCTMONO01:P2_PARK_POS")
+{
+    field(DESC, "DMM P2 Park Pos")
+    field(EGU, "mrad")
+    field(VAL, "0.0")
+    field(PREC, "$(PREC=3)")
+    field(PINI, "YES")
+}
+record(ai, "MCTVBM01:HEIGHT_PARK_POS")
+{
+    field(DESC, "VBM Height Park Pos")
+    field(EGU, "mm")
+    field(VAL, "-7.0")
+    field(PREC, "$(PREC=3)")
+    field(PINI, "YES")
+}
+record(ai, "MCTVBM01:PITCH_PARK_POS")
+{
+    field(DESC, "VBM Pitch Park Pos")
+    field(EGU, "mrad")
+    field(VAL, "0.0")
+    field(PREC, "$(PREC=3)")
+    field(PINI, "YES")
+}

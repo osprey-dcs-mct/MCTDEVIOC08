@@ -1,0 +1,133 @@
+# $File: //ASP/opa/mct/iocs/MCTDEVIOC08/MCTDEVIOC08App/Db/MCTSLT_status.db $
+# $Revision: #3 $
+# $DateTime: 2022/09/21 05:56:02 $
+# Last checked in by: $Author: lewisw $
+#
+# Description:
+# Determine in-position status of slits
+#
+# Copyright (c) 2022  Australian Synchrotron
+#
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# * Redistributions of source code must retain the above copyright notice, this
+#   list of conditions and the following disclaimer.
+#
+# * Redistributions in binary form must reproduce the above copyright notice,
+#   this list of conditions and the following disclaimer in the documentation
+#   and/or other materials provided with the distribution.
+#
+# * Neither the name of the copyright holder nor the names of its
+#   contributors may be used to endorse or promote products derived from
+#   this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+record(calcout, "$(P)IN_POSITION_CALC") {
+    field(DESC, "Overall $(DESC) pos. status calc.")
+    field(PINI, "YES")
+    field(INPA, "$(P)HSIZE_STATUS CPP")
+    field(INPB, "$(P)HCENTRE_STATUS CPP")
+    field(INPC, "$(P)VSIZE_STATUS CPP")
+    field(INPD, "$(P)VCENTRE_STATUS CPP")
+    field(CALC, "A&&B&&C&&D")
+    field(OUT,  "$(P)IN_POSITION PP")
+}
+
+record(bi, "$(P)IN_POSITION") {
+    field(DESC, "Overall $(DESC) position status")
+    field(ZNAM, "Not at tgt.")
+    field(ZSV,  "MINOR")
+    field(ONAM, "At target")
+}
+
+record(ai, "$(P)IN_POSITION_TOLERANCE") {
+    field(DESC, "Allowable tolerance for in-pos calc.")
+    field(VAL,  "$(TOLERANCE=0.2)")
+
+    info(autosaveFields, "VAL")
+}
+
+record(calcout, "$(P)HCENTRE_STATUS_CALC"){
+    field(DESC, "$(DESC) HCENTRE status calc")
+    field(PINI, "YES")
+    field(INPA, "$(P)HCENTRE_CALC CPP")
+    field(INPB, "$(P)HCENTRE.RBV CPP")
+    field(INPC, "$(P)IN_POSITION_TOLERANCE CPP")
+    field(CALC, "ABS(A-B)<=C")
+    field(OUT,  "$(P)HCENTRE_STATUS PP")
+}
+
+record(bi, "$(P)HCENTRE_STATUS") {
+    field(DESC, "$(DESC) HCENTRE status")
+    field(ZNAM, "Not at tgt.")
+    field(ZSV,  "MINOR")
+    field(ONAM, "At target")
+    field(OSV,  "NO_ALARM")
+}
+
+record(calcout, "$(P)HSIZE_STATUS_CALC"){
+    field(DESC, "$(DESC) HSIZE status calc")
+    field(PINI, "YES")
+    field(INPA, "$(P)HSIZE_CALC CPP")
+    field(INPB, "$(P)HSIZE.RBV CPP")
+    field(INPC, "$(P)IN_POSITION_TOLERANCE CPP")
+    field(CALC, "ABS(A-B)<=C")
+    field(OUT,  "$(P)HSIZE_STATUS PP")
+}
+
+record(bi, "$(P)HSIZE_STATUS") {
+    field(DESC, "$(DESC) HSIZE status")
+    field(ZNAM, "Not at tgt.")
+    field(ZSV,  "MINOR")
+    field(ONAM, "At target")
+    field(OSV,  "NO_ALARM")
+}
+
+record(calcout, "$(P)VCENTRE_STATUS_CALC"){
+    field(DESC, "$(DESC) VCENTRE status calc")
+    field(PINI, "YES")
+    field(INPA, "$(P)VCENTRE_CALC CPP")
+    field(INPB, "$(P)VCENTRE.RBV CPP")
+    field(INPC, "$(P)IN_POSITION_TOLERANCE CPP")
+    field(CALC, "ABS(A-B)<=C")
+    field(OUT,  "$(P)VCENTRE_STATUS PP")
+}
+
+record(bi, "$(P)VCENTRE_STATUS") {
+    field(DESC, "$(DESC) VCENTRE status")
+    field(ZNAM, "Not at tgt.")
+    field(ZSV,  "MINOR")
+    field(ONAM, "At target")
+    field(OSV,  "NO_ALARM")
+}
+
+record(calcout, "$(P)VSIZE_STATUS_CALC"){
+    field(DESC, "$(DESC) VSIZE status calc")
+    field(PINI, "YES")
+    field(INPA, "$(P)VSIZE_CALC CPP")
+    field(INPB, "$(P)VSIZE.RBV CPP")
+    field(INPC, "$(P)IN_POSITION_TOLERANCE CPP")
+    field(CALC, "ABS(A-B)<=C")
+    field(OUT,  "$(P)VSIZE_STATUS PP")
+}
+
+record(bi, "$(P)VSIZE_STATUS") {
+    field(DESC, "$(DESC) VSIZE status")
+    field(ZNAM, "Not at tgt.")
+    field(ZSV,  "MINOR")
+    field(ONAM, "At target")
+    field(OSV,  "NO_ALARM")
+}

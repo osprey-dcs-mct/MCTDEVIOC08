@@ -1,0 +1,84 @@
+# $File: //ASP/opa/mct/iocs/MCTDEVIOC08/MCTDEVIOC08App/Db/MCTSLT01_acceptance.db $
+# $Revision: #1 $
+# $DateTime: 2022/09/01 04:35:12 $
+# Last checked in by: $Author: lewisw $
+#
+# Description:
+# Determine in-position status of slits
+#
+# Copyright (c) 2022  Australian Synchrotron
+#
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# * Redistributions of source code must retain the above copyright notice, this
+#   list of conditions and the following disclaimer.
+#
+# * Redistributions in binary form must reproduce the above copyright notice,
+#   this list of conditions and the following disclaimer in the documentation
+#   and/or other materials provided with the distribution.
+#
+# * Neither the name of the copyright holder nor the names of its
+#   contributors may be used to endorse or promote products derived from
+#   this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+record(calc, "$(P)H_ACCEPT") {
+    field(DESC, "Horizontal acceptance")
+    field(EGU,  "mrad")
+    field(PREC, "3")
+    field(INPA, "$(P)Z")
+    field(INPB, "$(P)HSIZE.RBV CP")
+    field(CALC, "B/A*1000")
+    field(PINI, "YES")
+}
+
+record(calc, "$(P)H_ACCEPT_RATIO") {
+    field(DESC, "Horiz. acceptance rel. to MSK01")
+    field(EGU,  "%")
+    field(PREC, "1")
+    field(INPA, "MCTMSK01:HSIZE CP")
+    field(INPB, "$(P)H_ACCEPT CP")
+    field(CALC, "B/A*100")
+    field(LOW,  "90")
+    field(LSV,  "MINOR")
+    field(HIGH, "102")
+    field(HSV,  "MINOR")
+    field(PINI, "YES")
+}
+
+record(calc, "$(P)V_ACCEPT") {
+    field(DESC, "Vertical acceptance")
+    field(EGU,  "mrad")
+    field(PREC, "3")
+    field(INPA, "$(P)Z")
+    field(INPB, "$(P)VSIZE.RBV CP")
+    field(CALC, "B/A*1000")
+    field(PINI, "YES")
+}
+
+record(calc, "$(P)V_ACCEPT_RATIO") {
+    field(DESC, "Vert. acceptance rel. to MSK01")
+    field(EGU,  "%")
+    field(PREC, "1")
+    field(INPA, "MCTMSK01:VSIZE CP")
+    field(INPB, "$(P)V_ACCEPT CP")
+    field(CALC, "B/A*100")
+    field(LOW,  "90")
+    field(LSV,  "MINOR")
+    field(HIGH, "102")
+    field(HSV,  "MINOR")
+    field(PINI, "YES")
+}

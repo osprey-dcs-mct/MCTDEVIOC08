@@ -15,7 +15,7 @@ record(calc, "$(P)HSIZE_CALC1"){
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     #SLT02 Z position
-    field(INPC, "MCTSLT02:Z CP")
+    field(INPC, "$(P)Z CP")
     field(CALC, "A*C/B")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -24,7 +24,11 @@ record(calc, "$(P)HCENTRE_CALC1"){
     field(DESC, "Calc for white beam mode")
     field(PREC, "$(PREC=3)")
     field(INPA, "MCTSLT01:HCENTRE CP")
-    field(CALC, "A")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    #SLT02 Z position
+    field(INPC, "$(P)Z CP")
+    field(CALC, "A*C/B")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
@@ -36,7 +40,7 @@ record(calc, "$(P)VSIZE_CALC1"){
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     #SLT02 Z position
-    field(INPC, "MCTSLT02:Z CP")
+    field(INPC, "$(P)Z CP")
     field(CALC, "A*C/B")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -45,7 +49,11 @@ record(calc, "$(P)VCENTRE_CALC1"){
     field(DESC, "Calc for white beam mode")
     field(PREC, "$(PREC=3)")
     field(INPA, "MCTSLT01:VCENTRE CP")
-    field(CALC, "A")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    #SLT02 Z position
+    field(INPC, "$(P)Z CP")
+    field(CALC, "A*C/B")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
@@ -59,7 +67,7 @@ record(calc, "$(P)HSIZE_CALC2"){
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     #SLT02 Z position
-    field(INPC, "MCTSLT02:Z CP")
+    field(INPC, "$(P)Z CP")
     field(CALC, "A*C/B")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -68,22 +76,24 @@ record(calc, "$(P)HCENTRE_CALC2"){
     field(DESC, "Calc for pink beam mode")
     field(PREC, "$(PREC=3)")
     field(INPA, "MCTSLT01:HCENTRE CP")
-    field(CALC, "A")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    #SLT02 Z position
+    field(INPC, "$(P)Z CP")
+    field(CALC, "A*C/B")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
 record(calc, "$(P)VSIZE_CALC2"){
     field(DESC, "Calc for pink beam mode")
     field(PREC, "$(PREC=3)")
-    #fixed mask aperture
-    field(INPA, "MCTMSK01:VSIZE CP")
+    # MCTSLT01 vertical acceptance
+    field(INPA, "MCTSLT01:V_ACCEPT CP")
     #SLT02 Z position
-    field(INPB, "MCTSLT02:Z CP")
+    field(INPB, "$(P)Z CP")
     #VBM vertical acceptance
     field(INPC, "MCTVBM01:V_ACCEPT CP")
-    # MCTSLT01 vertical acceptance
-    field(INPD, "MCTSLT01:V_ACCEPT CP")
-    field(CALC, "MIN(A,C,D)*B/1000")
+    field(CALC, "MAX(0,MIN(A,C))*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
@@ -91,7 +101,11 @@ record(calc, "$(P)VCENTRE_CALC2"){
     field(DESC, "Calc for pink beam mode")
     field(PREC, "$(PREC=3)")
     field(INPA, "MCTSLT01:VCENTRE CP")
-    field(CALC, "A")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    #SLT02 Z position
+    field(INPC, "$(P)Z CP")
+    field(CALC, "A*C/B")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
@@ -105,7 +119,7 @@ record(calc, "$(P)HSIZE_CALC3"){
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     #SLT02 Z position
-    field(INPC, "MCTSLT02:Z CP")
+    field(INPC, "$(P)Z CP")
     field(CALC, "A*C/B")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -114,7 +128,11 @@ record(calc, "$(P)HCENTRE_CALC3"){
     field(DESC, "Calc for mono no mirror")
     field(PREC, "$(PREC=3)")
     field(INPA, "MCTSLT01:HCENTRE CP")
-    field(CALC, "A")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    #SLT02 Z position
+    field(INPC, "$(P)Z CP")
+    field(CALC, "A*C/B")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
@@ -126,7 +144,7 @@ record(calc, "$(P)VSIZE_CALC3"){
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     #SLT02 Z position
-    field(INPC, "MCTSLT02:Z CP")
+    field(INPC, "$(P)Z CP")
     field(CALC, "A*C/B")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -134,7 +152,8 @@ record(calc, "$(P)VSIZE_CALC3"){
 record(calc, "$(P)VCENTRE_CALC3"){
     field(DESC, "Calc for mono no mirror")
     field(PREC, "$(PREC=3)")
-    field(INPA, "MCTSLT01:VCENTRE CP")
+    # DMM ML2 Y
+    field(INPA, "MCTMONO01MOT03 CP")
     field(CALC, "A")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -149,7 +168,7 @@ record(calc, "$(P)HSIZE_CALC4"){
     #SLT01 Z position
     field(INPB, "MCTSLT01:Z CP")
     #SLT02 Z position
-    field(INPC, "MCTSLT02:Z CP")
+    field(INPC, "$(P)Z CP")
     field(CALC, "A*C/B")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -158,7 +177,11 @@ record(calc, "$(P)HCENTRE_CALC4"){
     field(DESC, "Calc for mono beam with mirror")
     field(PREC, "$(PREC=3)")
     field(INPA, "MCTSLT01:HCENTRE CP")
-    field(CALC, "A")
+    #SLT01 Z position
+    field(INPB, "MCTSLT01:Z CP")
+    #SLT02 Z position
+    field(INPC, "$(P)Z CP")
+    field(CALC, "A*C/B")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
@@ -168,12 +191,10 @@ record(calc, "$(P)VSIZE_CALC4"){
     # MCTSLT01 vertical acceptance
     field(INPA, "MCTSLT01:V_ACCEPT CP")
     #SLT02 Z position
-    field(INPB, "MCTSLT02:Z CP")
-    #DMM vertical acceptance
-    field(INPC, "MCTMONO01:V_ACCEPT CP")
+    field(INPB, "$(P)Z CP")
     #VBM vertical acceptance
-    field(INPD, "MCTVBM01:V_ACCEPT CP")
-    field(CALC, "MIN(A,C,D)*B/1000")
+    field(INPC, "MCTVBM01:V_ACCEPT CP")
+    field(CALC, "MAX(0,MIN(A,C))*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
@@ -181,7 +202,7 @@ record(calc, "$(P)VCENTRE_CALC4"){
     field(DESC, "Calc for mono beam with mirror")
     field(PREC, "$(PREC=3)")
     # DMM ML2 Y
-    field(INPA, "MCTMONO01MOT03.RBV CP")
+    field(INPA, "MCTMONO01MOT03 CP")
     field(CALC, "A")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -209,7 +230,7 @@ record(ao, "$(P)HSIZE_AUTO"){
 record(dfanout, "$(P)HSIZE_MOVE"){
     field(DOL, "$(P)HSIZE_CALC")
     field(OMSL, "closed_loop")
-    #field(OUTA, "MCTSLT02:HSIZE PP")
+    field(OUTA, "MCTSLT02:HSIZE PP")
 }
 
 #HCENTRE move calc/records
@@ -234,7 +255,7 @@ record(ao, "$(P)HCENTRE_AUTO"){
 record(dfanout, "$(P)HCENTRE_MOVE"){
     field(DOL, "$(P)HCENTRE_CALC")
     field(OMSL, "closed_loop")
-    #field(OUTA, "MCTSLT02:HCENTRE PP")
+    field(OUTA, "$(P)HCENTRE PP")
 }
 
 #VSIZE move calc/records
@@ -259,7 +280,7 @@ record(ao, "$(P)VSIZE_AUTO"){
 record(dfanout, "$(P)VSIZE_MOVE"){
     field(DOL, "$(P)VSIZE_CALC")
     field(OMSL, "closed_loop")
-    #field(OUTA, "MCTSLT02:VSIZE PP")
+    field(OUTA, "$(P)VSIZE PP")
 }
 
 #VCENTRE move calc/records
@@ -284,5 +305,23 @@ record(ao, "$(P)VCENTRE_AUTO"){
 record(dfanout, "$(P)VCENTRE_MOVE"){
     field(DOL, "$(P)VCENTRE_CALC")
     field(OMSL, "closed_loop")
-    #field(OUTA, "MCTSLT02:VCENTRE PP")
+    field(OUTA, "$(P)VCENTRE PP")
+}
+
+# Move record for full slit assembly
+record(sseq, "$(P)ALL_MOVE") {
+    field(DESC, "Move all slit axes")
+    field(SELM, "All")
+    field(DOL1, "$(P)HSIZE_CALC")
+    field(LNK1, "$(P)HSIZE CA")
+    field(WAIT1, "After2")
+    field(DOL2, "$(P)VSIZE_CALC")
+    field(LNK2, "$(P)VSIZE CA")
+    field(WAIT2, "Wait")
+    field(DOL3, "$(P)HCENTRE_CALC")
+    field(LNK3, "$(P)HCENTRE CA")
+    field(WAIT3, "After4")
+    field(DOL4, "$(P)VCENTRE_CALC")
+    field(LNK4, "$(P)VCENTRE CA")
+    field(WAIT4, "Wait")
 }

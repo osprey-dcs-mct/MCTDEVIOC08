@@ -13,7 +13,7 @@ record(calc, "$(P)HSIZE_CALC1"){
     #fixed mask aperture
     field(INPA, "MCTMSK01:HSIZE CP")
     #SLT01 Z position
-    field(INPB, "MCTSLT01:Z CP")
+    field(INPB, "$(P)Z CP")
     field(CALC, "A*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -31,7 +31,7 @@ record(calc, "$(P)VSIZE_CALC1"){
     #fixed mask aperture
     field(INPA, "MCTMSK01:VSIZE CP")
     #SLT01 Z position
-    field(INPB, "MCTSLT01:Z CP")
+    field(INPB, "$(P)Z CP")
     field(CALC, "A*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -51,7 +51,7 @@ record(calc, "$(P)HSIZE_CALC2"){
     #fixed mask aperture
     field(INPA, "MCTMSK01:HSIZE CP")
     #SLT01 Z position
-    field(INPB, "MCTSLT01:Z CP")
+    field(INPB, "$(P)Z CP")
     field(CALC, "A*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -69,10 +69,10 @@ record(calc, "$(P)VSIZE_CALC2"){
     #fixed mask aperture
     field(INPA, "MCTMSK01:VSIZE CP")
     #SLT01 Z position
-    field(INPB, "MCTSLT01:Z CP")
+    field(INPB, "$(P)Z CP")
     #VBM Y acceptance
     field(INPC, "MCTVBM01:V_ACCEPT CP")
-    field(CALC, "MIN(A,C)*B/1000")
+    field(CALC, "MAX(0,MIN(A,C))*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
@@ -91,7 +91,7 @@ record(calc, "$(P)HSIZE_CALC3"){
     #DMM X acceptance
     field(INPA, "MCTMONO01:H_ACCEPT CP")
     #SLT01 Z position
-    field(INPB, "MCTSLT01:Z CP")
+    field(INPB, "$(P)Z CP")
     field(CALC, "A*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -109,10 +109,10 @@ record(calc, "$(P)VSIZE_CALC3"){
     #fixed mask aperture
     field(INPA, "MCTMSK01:VSIZE CP")
     #SLT01 Z position
-    field(INPB, "MCTSLT01:Z CP")
+    field(INPB, "$(P)Z CP")
     #VBM Y acceptance
     field(INPC, "MCTMONO01:V_ACCEPT CP")
-    field(CALC, "MIN(A,C)*B/1000")
+    field(CALC, "MAX(0,MIN(A,C))*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
@@ -131,7 +131,7 @@ record(calc, "$(P)HSIZE_CALC4"){
     #DMM X acceptance
     field(INPA, "MCTMONO01:H_ACCEPT CP")
     #SLT01 Z position
-    field(INPB, "MCTSLT01:Z CP")
+    field(INPB, "$(P)Z CP")
     field(CALC, "A*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
@@ -149,10 +149,10 @@ record(calc, "$(P)VSIZE_CALC4"){
     #fixed mask aperture
     field(INPA, "MCTMSK01:VSIZE CP")
     #SLT01 Z position
-    field(INPB, "MCTSLT01:Z CP")
-    #VBM Y acceptance
+    field(INPB, "$(P)Z CP")
+    #MONO Y acceptance
     field(INPC, "MCTMONO01:V_ACCEPT CP")
-    field(CALC, "MIN(A,C)*B/1000")
+    field(CALC, "MAX(0,MIN(A,C))*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
@@ -186,7 +186,7 @@ record(ao, "$(P)HSIZE_AUTO"){
 record(dfanout, "$(P)HSIZE_MOVE"){
     field(DOL, "$(P)HSIZE_CALC")
     field(OMSL, "closed_loop")
-    #field(OUTA, "MCTSLT01:HSIZE PP")
+    field(OUTA, "$(P)HSIZE PP")
 }
 
 #HCENTRE move calc/records
@@ -211,7 +211,7 @@ record(ao, "$(P)HCENTRE_AUTO"){
 record(dfanout, "$(P)HCENTRE_MOVE"){
     field(DOL, "$(P)HCENTRE_CALC")
     field(OMSL, "closed_loop")
-    #field(OUTA, "MCTSLT01:HCENTRE PP")
+    field(OUTA, "$(P)HCENTRE PP")
 }
 
 #VSIZE move calc/records
@@ -236,7 +236,7 @@ record(ao, "$(P)VSIZE_AUTO"){
 record(dfanout, "$(P)VSIZE_MOVE"){
     field(DOL, "$(P)VSIZE_CALC")
     field(OMSL, "closed_loop")
-    #field(OUTA, "MCTSLT01:VSIZE PP")
+    field(OUTA, "$(P)VSIZE PP")
 }
 
 #VCENTRE move calc/records
@@ -261,25 +261,23 @@ record(ao, "$(P)VCENTRE_AUTO"){
 record(dfanout, "$(P)VCENTRE_MOVE"){
     field(DOL, "$(P)VCENTRE_CALC")
     field(OMSL, "closed_loop")
-    #field(OUTA, "MCTSLT01:VCENTRE PP")
+    field(OUTA, "$(P)VCENTRE PP")
 }
 
 # Move record for full slit assembly
 record(sseq, "$(P)ALL_MOVE") {
     field(DESC, "Move all slit axes")
     field(SELM, "All")
-    field(SDIS, "$(P)OP_MODE CP")
-    field(DISV, 0)
     field(DOL1, "$(P)HSIZE_CALC")
-    #field(LNK1, "MCTSLT01:HSIZE CA")
+    field(LNK1, "$(P)HSIZE CA")
     field(WAIT1, "After2")
     field(DOL2, "$(P)VSIZE_CALC")
-    #field(LNK2, "MCTSLT01:VSIZE CA")
+    field(LNK2, "$(P)VSIZE CA")
     field(WAIT2, "Wait")
     field(DOL3, "$(P)HCENTRE_CALC")
-    #field(LNK3, "MCTSLT01:HCENTRE CA")
+    field(LNK3, "$(P)HCENTRE CA")
     field(WAIT3, "After4")
     field(DOL4, "$(P)VCENTRE_CALC")
-    #field(LNK4, "MCTSLT01:VCENTRE CA")
+    field(LNK4, "$(P)VCENTRE CA")
     field(WAIT4, "Wait")
 }
