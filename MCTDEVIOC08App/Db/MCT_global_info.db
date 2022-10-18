@@ -215,6 +215,7 @@ record(calc, "MCTVBM01:H_ACCEPT")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
+
 record(calc, "MCTVBM01:V_ACCEPT")
 {
     field(DESC, "Calc for VBM vert. acceptance")
@@ -248,6 +249,7 @@ record(ai, "MCTMONO01:Y1_PARK_POS")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
+
 record(ai, "MCTMONO01:Y2_PARK_POS")
 {
     field(DESC, "DMM Y2 Park Pos")
@@ -256,6 +258,7 @@ record(ai, "MCTMONO01:Y2_PARK_POS")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
+
 record(ai, "MCTMONO01:P1_PARK_POS")
 {
     field(DESC, "DMM P1 Park Pos")
@@ -264,6 +267,7 @@ record(ai, "MCTMONO01:P1_PARK_POS")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
+
 record(ai, "MCTMONO01:P2_PARK_POS")
 {
     field(DESC, "DMM P2 Park Pos")
@@ -272,6 +276,7 @@ record(ai, "MCTMONO01:P2_PARK_POS")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
+
 record(ai, "MCTVBM01:HEIGHT_PARK_POS")
 {
     field(DESC, "VBM Height Park Pos")
@@ -280,6 +285,7 @@ record(ai, "MCTVBM01:HEIGHT_PARK_POS")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
+
 record(ai, "MCTVBM01:PITCH_PARK_POS")
 {
     field(DESC, "VBM Pitch Park Pos")
