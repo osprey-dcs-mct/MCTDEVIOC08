@@ -82,3 +82,64 @@ record(calc, "$(P)V_ACCEPT_RATIO") {
     field(HSV,  "MINOR")
     field(PINI, "YES")
 }
+
+record(calc, "$(P)H_ACCEPT_RATIO_MONO") {
+    field(DESC, "Horz. acceptance rel. to MONO01")
+    field(EGU,  "%")
+    field(PREC, "1")
+    field(INPA, "MCTMONO01:H_ACCEPT CP")
+    field(INPB, "$(P)H_ACCEPT CP")
+    field(INPC, "MCTMONO01:IN_SERVICE_CALC CP")
+    field(CALC, "C?B/A*100:0")
+    field(LOW,  "0")
+    field(LSV,  "NO_ALARM")
+    field(HIGH, "100.1")
+    field(HSV,  "MINOR")
+    field(PINI, "YES")
+}
+
+record(calc, "$(P)V_ACCEPT_RATIO_MONO") {
+    field(DESC, "Vert. acceptance rel. to MONO01")
+    field(EGU,  "%")
+    field(PREC, "1")
+    field(INPA, "MCTMONO01:V_ACCEPT CP")
+    field(INPB, "$(P)V_ACCEPT CP")
+    field(INPC, "MCTMONO01:IN_SERVICE_CALC CP")
+    field(CALC, "C?B/A*100:0")
+    field(LOW,  "0")
+    field(LSV,  "NO_ALARM")
+    field(HIGH, "100.1")
+    field(HSV,  "MINOR")
+    field(PINI, "YES")
+}
+
+record(calc, "$(P)H_ACCEPT_RATIO_VBM") {
+    field(DESC, "Horz. acceptance rel. to VBM01")
+    field(EGU,  "%")
+    field(PREC, "1")
+    field(INPA, "MCTVBM01:H_ACCEPT CP")
+    field(INPB, "$(P)H_ACCEPT CP")
+    field(INPC, "MCTVBM01:IN_SERVICE_CALC CP")
+    field(CALC, "C?B/A*100:0")
+    field(LOW,  "0")
+    field(LSV,  "NO_ALARM")
+    field(HIGH, "100.1")
+    field(HSV,  "MINOR")
+    field(PINI, "YES")
+}
+
+record(calc, "$(P)V_ACCEPT_RATIO_VBM") {
+    field(DESC, "Vert. acceptance rel. to VBM01")
+    field(EGU,  "%")
+    field(PREC, "1")
+    field(INPA, "MCTVBM01:V_ACCEPT CP")
+    field(INPB, "$(P)V_ACCEPT CP")
+    field(INPC, "MCTVBM01:IN_SERVICE_CALC CP")
+    field(CALC, "C?B/A*100:0")
+    field(LOW,  "0")
+    field(LSV,  "NO_ALARM")
+    field(HIGH, "100.1")
+    field(HSV,  "MINOR")
+    field(PINI, "YES")
+}
+
