@@ -225,7 +225,7 @@ record(calc, "MCTVBM01:V_ACCEPT")
     field(INPB, "MCTVBM01:Z CP")
     #VBM Pitch  
     field(INPC, "MCTVBM01:PITCH_USER CP")
-    field(CALC, "A*SIN(C*D2R)/B*1000")
+    field(CALC, "A*SIN(C/1000)/B*1000")
     field(PREC, "$(PREC=3)")
     field(PINI, "YES")
 }
