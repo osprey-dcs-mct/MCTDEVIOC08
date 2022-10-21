@@ -53,7 +53,18 @@ record(ai, "MCTMONO01:Z2")
     field(EGU,  "mm")
 }
 
-record(ai, "MCTMONO01:STRIPE_LEN")
+record(ai, "MCTMONO01:STRIPE_FILL")
+{
+    field(DESC, "Fill factor for DMM stripe")
+    field(VAL, "95")
+    field(PINI, "YES")
+    field(PREC, "1")
+    field(EGU,  "%")
+
+    info(autosaveFields, "VAL")
+}
+
+record(ai, "MCTMONO01:STRIPE_LEN_FULL")
 {
     field(DESC, "DMM multilayer stripe length")
     field(VAL,  "330")
@@ -62,13 +73,35 @@ record(ai, "MCTMONO01:STRIPE_LEN")
     field(EGU,  "mm")
 }
 
-record(ai, "MCTMONO01:STRIPE_WIDTH")
+record(calc, "MCTMONO01:STRIPE_LEN")
+{
+    field(DESC, "DMM ML illuminated stripe length")
+    field(PINI, "YES")
+    field(PREC, "2")
+    field(EGU,  "mm")
+    field(INPA, "MCTMONO01:STRIPE_LEN_FULL CPP")
+    field(INPB, "MCTMONO01:STRIPE_FILL CPP")
+    field(CALC, "A*B/100")
+}
+
+record(ai, "MCTMONO01:STRIPE_WIDTH_FULL")
 {
     field(DESC, "DMM multilayer stripe width")
     field(VAL,  "22")
     field(PINI, "YES")
     field(PREC, "2")
     field(EGU,  "mm")
+}
+
+record(calc, "MCTMONO01:STRIPE_WIDTH")
+{
+    field(DESC, "DMM ML illuminated stripe width")
+    field(PINI, "YES")
+    field(PREC, "2")
+    field(EGU,  "mm")
+    field(INPA, "MCTMONO01:STRIPE_WIDTH_FULL CPP")
+    field(INPB, "MCTMONO01:STRIPE_FILL CPP")
+    field(CALC, "A*B/100")
 }
 
 record(ai, "MCTSLT02:Z")
@@ -204,12 +237,64 @@ record(calc, "MCTMONO01:V_ACCEPT")
 }
 
 #VBM angular acceptance
+record(ai, "MCTVBM01:STRIPE_FILL")
+{
+    field(DESC, "Fill factor for VBM stripe")
+    field(VAL, "95")
+    field(PINI, "YES")
+    field(PREC, "1")
+    field(EGU,  "%")
+
+    info(autosaveFields, "VAL")
+}
+
+record(ai, "MCTVBM01:STRIPE_LEN_FULL")
+{
+    field(DESC, "VBM multilayer stripe length")
+    field(VAL,  "1150")
+    field(PINI, "YES")
+    field(PREC, "2")
+    field(EGU,  "mm")
+}
+
+record(calc, "MCTVBM01:STRIPE_LEN")
+{
+    field(DESC, "VBM illuminated stripe length")
+    field(PINI, "YES")
+    field(PREC, "2")
+    field(EGU,  "mm")
+    field(INPA, "MCTVBM01:STRIPE_LEN_FULL CPP")
+    field(INPB, "MCTVBM01:STRIPE_FILL CPP")
+    field(CALC, "A*B/100")
+}
+
+record(ai, "MCTVBM01:STRIPE_WIDTH_FULL")
+{
+    field(DESC, "VBM multilayer stripe width")
+    field(VAL,  "35")
+    field(PINI, "YES")
+    field(PREC, "2")
+    field(EGU,  "mm")
+}
+
+record(calc, "MCTVBM01:STRIPE_WIDTH")
+{
+    field(DESC, "VBM illuminated stripe width")
+    field(PINI, "YES")
+    field(PREC, "2")
+    field(EGU,  "mm")
+    field(INPA, "MCTVBM01:STRIPE_WIDTH_FULL CPP")
+    field(INPB, "MCTVBM01:STRIPE_FILL CPP")
+    field(CALC, "A*B/100")
+}
+
+
 record(calc, "MCTVBM01:H_ACCEPT")
 {
     field(DESC, "Calc for VBM horiz. acceptance")
     field(EGU,  "mrad")
     #VBM stripe dimension
-    field(INPA, 35)
+    field(INPA, "MCTVBM01:STRIPE_WIDTH CP")
     field(INPB, "MCTVBM01:Z CP")
     field(CALC, "(A/B)*1000")
     field(PREC, "$(PREC=3)")
@@ -221,7 +306,7 @@ record(calc, "MCTVBM01:V_ACCEPT")
     field(DESC, "Calc for VBM vert. acceptance")
     field(EGU,  "mrad")
     #VBM stripe dimension
-    field(INPA, 1150)
+    field(INPA, "MCTVBM01:STRIPE_LEN CP")
     field(INPB, "MCTVBM01:Z CP")
     #VBM Pitch  
     field(INPC, "MCTVBM01:PITCH_USER CP")
