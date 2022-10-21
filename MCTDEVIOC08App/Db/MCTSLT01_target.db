@@ -52,7 +52,9 @@ record(calc, "$(P)HSIZE_CALC2"){
     field(INPA, "MCTMSK01:HSIZE CP")
     #SLT01 Z position
     field(INPB, "$(P)Z CP")
-    field(CALC, "A*B/1000")
+    #VBM X acceptance
+    field(INPC, "MCTVBM01:H_ACCEPT CP")
+    field(CALC, "MAX(0,MIN(A,C))A*B/1000")
     field(PINI, "YES")
     field(EGU,  "mm")
 }
